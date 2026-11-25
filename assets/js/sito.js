@@ -1,21 +1,26 @@
-/* Comandi del sito: interruttore delle animazioni e link WhatsApp della segreteria. */
+/* Comandi del sito: lucciole, comparsa delle sezioni e link WhatsApp della segreteria. */
 (function () {
-  var html = document.documentElement;
-
-  /* Senza animazioni: la scelta resta salvata nel browser di chi visita */
-  var btn = document.getElementById('anim');
-  function label() {
-    var off = html.classList.contains('no-gl');
-    btn.textContent = off ? 'Con animazioni' : 'Senza animazioni';
-    btn.setAttribute('aria-pressed', off ? 'true' : 'false');
+  /* Lucciole nell'apertura */
+  var luc = document.querySelector('.lucciole');
+  if (luc && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    for (var i = 0; i < 18; i++) {
+      var f = document.createElement('i');
+      f.style.left = (Math.random() * 100) + '%';
+      f.style.setProperty('--s', (2 + Math.random() * 3).toFixed(1) + 'px');
+      f.style.setProperty('--d', (11 + Math.random() * 10).toFixed(1) + 's');
+      f.style.setProperty('--w', (-Math.random() * 20).toFixed(1) + 's');
+      f.style.setProperty('--x', (Math.random() * 80 - 40).toFixed(0) + 'px');
+      luc.appendChild(f);
+    }
   }
-  if (btn) {
-    label();
-    btn.addEventListener('click', function () {
-      var off = html.classList.contains('no-gl');
-      try { localStorage.setItem('sg-animazioni', off ? 'si' : 'no'); } catch (e) {}
-      location.reload();
-    });
+
+  /* Le sezioni compaiono con calma mentre scorri */
+  var el = document.querySelectorAll('.tappa:not(.hero) .card, .tappa .foto, .finale .card');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('vista'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -10% 0px' });
+    el.forEach(function (x) { x.classList.add('rivela'); io.observe(x); });
   }
 
   /* WhatsApp della segreteria: numero in formato internazionale, senza + e spazi (es. 393331234567) */

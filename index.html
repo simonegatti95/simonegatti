@@ -6,27 +6,18 @@
 <title>Simone Gatti · Chinesiologo a Pietrasanta</title>
 <meta name="description" content="Simone Gatti, chinesiologo a Libra, Pietrasanta. Aiuto le persone over 50 a tornare a camminare e vivere in autonomia, con un allenamento su misura anche in natura.">
 <link rel="icon" href="assets/img/pittogramma.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=gambarino@400&f[]=satoshi@400,500,700&display=swap">
+<meta name="theme-color" content="#0F1A14">
 <link rel="stylesheet" href="assets/css/sito.css">
-<script>
-  // Senza 3D: chi ha chiesto meno animazioni al sistema, o l'ha scelto qui, vede la versione statica.
-  (function () {
-    var off = false;
-    try { off = localStorage.getItem('sg-animazioni') === 'no'; } catch (e) {}
-    if (off || matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('no-gl');
-  })();
-</script>
 </head>
 <body>
-<canvas id="gl" aria-hidden="true"></canvas>
-<div id="loader" aria-hidden="true"></div>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 
 <header class="nav">
   <a class="brand" href="#inizio">
     <img src="assets/img/pittogramma.png" alt="" width="36" height="36">
-    <span>Simone Gatti</span>
+    <span>Simone <em>Gatti</em></span>
   </a>
   <nav aria-label="Sezioni">
     <a href="#chi-sono">Chi sono</a>
@@ -35,26 +26,30 @@
     <a href="#domande">Domande</a>
   </nav>
   <div class="nav-actions">
-    <button type="button" id="anim" class="ghost" aria-pressed="false">Senza animazioni</button>
     <a class="btn" href="#prenota">Prenota</a>
   </div>
 </header>
 
 <main>
-  <section id="inizio" class="tappa hero" data-photos="natura-terrazzo">
+  <section id="inizio" class="tappa hero">
     <div class="card">
       <p class="eyebrow">Chinesiologo · Libra · Pietrasanta</p>
-      <h1>Stare bene nel proprio corpo, il più a lungo possibile.</h1>
+      <h1>Stare bene nel proprio corpo, <em>il più a lungo possibile.</em></h1>
       <p class="lead">Aiuto le persone over 50 a tornare a camminare e vivere in autonomia, con un allenamento su misura anche in natura.</p>
       <div class="actions">
         <a class="btn" href="#prenota">Richiedi il primo incontro</a>
         <a class="link" href="#chi-sono">Scorri il percorso</a>
       </div>
     </div>
-    <img class="static-photo" src="assets/img/natura-terrazzo-m.jpg" alt="Il terrazzo di Libra affacciato sul verde">
+    <div class="lucciole" aria-hidden="true"></div>
+    <svg class="monti" viewBox="0 0 1440 420" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 260 L180 170 L330 230 L520 120 L700 210 L860 140 L1040 220 L1220 130 L1440 210 V420 H0Z" fill="#16291E" opacity=".75"/>
+      <path d="M0 320 L220 240 L400 300 L600 220 L780 290 L980 230 L1180 300 L1440 240 V420 H0Z" fill="#102017"/>
+      <path d="M0 380 L260 330 L520 370 L800 320 L1080 365 L1440 330 V420 H0Z" fill="#0B140F"/>
+    </svg>
   </section>
 
-  <section id="chi-sono" class="tappa" data-photos="yoga">
+  <section id="chi-sono" class="tappa">
     <div class="card">
       <p class="eyebrow">Tappa 1 · Chi sono</p>
       <h2>Sono Simone, chinesiologo.</h2>
@@ -62,10 +57,10 @@
       <p>Prima di qualsiasi esercizio ti faccio una domanda: cosa vorresti tornare a fare? Da quella risposta costruiamo il percorso.</p>
       <p class="todo">{{Due righe sulla tua storia: perché hai scelto questo lavoro.}}</p>
     </div>
-    <img class="static-photo" src="assets/img/yoga-m.jpg" alt="Una lezione all'aperto a Libra, nel verde">
+    <img class="foto" loading="lazy" src="assets/img/yoga-m.jpg" alt="Una lezione all'aperto a Libra, nel verde">
   </section>
 
-  <section id="metodo" class="tappa" data-photos="bouganville">
+  <section id="metodo" class="tappa">
     <div class="card">
       <p class="eyebrow">Tappa 2 · Il metodo</p>
       <h2>La longevità, per me</h2>
@@ -78,10 +73,10 @@
         <li><strong>Accanto ai professionisti.</strong> Quando serve, lavoro insieme al tuo fisioterapista e al tuo medico.</li>
       </ul>
     </div>
-    <img class="static-photo" src="assets/img/bouganville-m.jpg" alt="Una bouganville in fiore nel giardino di Libra">
+    <img class="foto" loading="lazy" src="assets/img/bouganville-m.jpg" alt="Una bouganville in fiore nel giardino di Libra">
   </section>
 
-  <section id="gesti" class="tappa" data-photos="ruscello">
+  <section id="gesti" class="tappa">
     <div class="card">
       <p class="eyebrow">Tappa 3 · I gesti della longevità</p>
       <h2>Alcuni gesti di tutti i giorni dicono molto del tuo corpo.</h2>
@@ -89,10 +84,10 @@
       <p>Presto qui troverai un piccolo percorso per osservarli con calma, da solo o insieme a un tuo genitore. Non è un test medico: è un modo per capire da dove partire.</p>
       <p class="soon">In arrivo</p>
     </div>
-    <img class="static-photo" src="assets/img/ruscello-m.jpg" alt="Il ruscello nel verde intorno a Libra">
+    <img class="foto" loading="lazy" src="assets/img/ruscello-m.jpg" alt="Il ruscello nel verde intorno a Libra">
   </section>
 
-  <section id="libra" class="tappa" data-photos="eventi-giardino">
+  <section id="libra" class="tappa">
     <div class="card">
       <p class="eyebrow">Tappa 4 · Libra</p>
       <h2>Un piccolo posto immerso nella natura.</h2>
@@ -100,7 +95,7 @@
       <p class="address">Via Santa Maria 33, Pietrasanta (LU)</p>
       <a class="link" href="https://libraterracreativa.github.io/" target="_blank" rel="noopener">Scopri Libra</a>
     </div>
-    <img class="static-photo" src="assets/img/eventi-giardino-m.jpg" alt="Il giardino di Libra con le piante tropicali">
+    <img class="foto" loading="lazy" src="assets/img/eventi-giardino-m.jpg" alt="Il giardino di Libra con le piante tropicali">
   </section>
 
   <section id="storie" class="tappa">
@@ -160,15 +155,6 @@
   <p class="small">Muoviti fuori. Stai bene dentro.</p>
 </footer>
 
-<script>
-  // La scena 3D si carica solo se le animazioni sono attive.
-  if (!document.documentElement.classList.contains('no-gl')) {
-    var s = document.createElement('script');
-    s.type = 'module';
-    s.src = 'assets/js/scena.js';
-    document.body.appendChild(s);
-  }
-</script>
 <script src="assets/js/sito.js"></script>
 </body>
 </html>
