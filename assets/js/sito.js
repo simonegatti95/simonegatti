@@ -1,19 +1,5 @@
-/* Comandi del sito: lucciole, comparsa delle sezioni e link WhatsApp della segreteria. */
+/* Comandi del sito: comparsa delle sezioni e link WhatsApp della segreteria. */
 (function () {
-  /* Lucciole nell'apertura */
-  var luc = document.querySelector('.lucciole');
-  if (luc && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    for (var i = 0; i < 18; i++) {
-      var f = document.createElement('i');
-      f.style.left = (Math.random() * 100) + '%';
-      f.style.setProperty('--s', (2 + Math.random() * 3).toFixed(1) + 'px');
-      f.style.setProperty('--d', (11 + Math.random() * 10).toFixed(1) + 's');
-      f.style.setProperty('--w', (-Math.random() * 20).toFixed(1) + 's');
-      f.style.setProperty('--x', (Math.random() * 80 - 40).toFixed(0) + 'px');
-      luc.appendChild(f);
-    }
-  }
-
   /* Le sezioni compaiono con calma mentre scorri */
   var el = document.querySelectorAll('.tappa:not(.hero) .card, .tappa .foto, .finale .card');
   if ('IntersectionObserver' in window) {
