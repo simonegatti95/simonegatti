@@ -1,11 +1,25 @@
-/* Comandi del sito: comparsa delle sezioni e link WhatsApp della segreteria. */
+/* Comandi del sito: barra, tappe del percorso, comparsa delle sezioni e link WhatsApp della segreteria. */
 (function () {
+  /* La barra diventa chiara quando lasci la foto di apertura */
+  var nav = document.querySelector('.nav'), hero = document.querySelector('.hero');
+  function barra() { nav.classList.toggle('chiara', window.scrollY > hero.offsetHeight - 80); }
+  if (nav && hero) { barra(); window.addEventListener('scroll', barra, { passive: true }); }
+
+  /* Le quattro tappe del percorso */
+  var tabs = document.querySelectorAll('.tappe [role=tab]');
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () {
+      tabs.forEach(function (x) { x.setAttribute('aria-selected', x === t ? 'true' : 'false'); });
+      document.querySelectorAll('.tappa-p').forEach(function (p) { p.hidden = p.dataset.t !== t.dataset.t; });
+    });
+  });
+
   /* Le sezioni compaiono con calma mentre scorri */
-  var el = document.querySelectorAll('.tappa:not(.hero) .card, .tappa .foto, .finale .card');
+  var el = document.querySelectorAll('.sezione h2, .chi figure, .chi-testo, .tappa-box, .gesti-lista, .libra-card, .faq details, .manifesto-testo');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (es) {
       es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('vista'); io.unobserve(e.target); } });
-    }, { rootMargin: '0px 0px -10% 0px' });
+    }, { rootMargin: '0px 0px -8% 0px' });
     el.forEach(function (x) { x.classList.add('rivela'); io.observe(x); });
   }
 
