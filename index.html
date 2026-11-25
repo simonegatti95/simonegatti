@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Simone Gatti · Chinesiologo a Pietrasanta</title>
+<meta name="description" content="Simone Gatti, chinesiologo a Libra, Pietrasanta. Aiuto le persone over 50 a tornare a camminare e vivere in autonomia, con un allenamento su misura anche in natura.">
+<link rel="icon" href="assets/img/pittogramma.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/sito.css">
+<script>
+  // Senza 3D: chi ha chiesto meno animazioni al sistema, o l'ha scelto qui, vede la versione statica.
+  (function () {
+    var off = false;
+    try { off = localStorage.getItem('sg-animazioni') === 'no'; } catch (e) {}
+    if (off || matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('no-gl');
+  })();
+</script>
+</head>
+<body>
+<canvas id="gl" aria-hidden="true"></canvas>
+<div id="loader" aria-hidden="true"></div>
+
+<header class="nav">
+  <a class="brand" href="#inizio">
+    <img src="assets/img/pittogramma.png" alt="" width="36" height="36">
+    <span>Simone Gatti</span>
+  </a>
+  <nav aria-label="Sezioni">
+    <a href="#chi-sono">Chi sono</a>
+    <a href="#metodo">Il metodo</a>
+    <a href="#libra">Libra</a>
+    <a href="#domande">Domande</a>
+  </nav>
+  <div class="nav-actions">
+    <button type="button" id="anim" class="ghost" aria-pressed="false">Senza animazioni</button>
+    <a class="btn" href="#prenota">Prenota</a>
+  </div>
+</header>
+
+<main>
+  <section id="inizio" class="tappa hero" data-photos="natura-terrazzo">
+    <div class="card">
+      <p class="eyebrow">Chinesiologo · Libra · Pietrasanta</p>
+      <h1>Stare bene nel proprio corpo, il più a lungo possibile.</h1>
+      <p class="lead">Aiuto le persone over 50 a tornare a camminare e vivere in autonomia, con un allenamento su misura anche in natura.</p>
+      <div class="actions">
+        <a class="btn" href="#prenota">Richiedi il primo incontro</a>
+        <a class="link" href="#chi-sono">Scorri il percorso</a>
+      </div>
+    </div>
+    <img class="static-photo" src="assets/img/natura-terrazzo-m.jpg" alt="Il terrazzo di Libra affacciato sul verde">
+  </section>
+
+  <section id="chi-sono" class="tappa" data-photos="yoga">
+    <div class="card">
+      <p class="eyebrow">Tappa 1 · Chi sono</p>
+      <h2>Sono Simone, chinesiologo.</h2>
+      <p>Lavoro a Libra, a Pietrasanta, con le persone che vogliono continuare a fare le loro cose da sole: camminare, salire le scale, viaggiare, stare con i nipoti.</p>
+      <p>Prima di qualsiasi esercizio ti faccio una domanda: cosa vorresti tornare a fare? Da quella risposta costruiamo il percorso.</p>
+      <p class="todo">{{Due righe sulla tua storia: perché hai scelto questo lavoro.}}</p>
+    </div>
+    <img class="static-photo" src="assets/img/yoga-m.jpg" alt="Una lezione all'aperto a Libra, nel verde">
+  </section>
+
+  <section id="metodo" class="tappa" data-photos="bouganville">
+    <div class="card">
+      <p class="eyebrow">Tappa 2 · Il metodo</p>
+      <h2>La longevità, per me</h2>
+      <blockquote>Muoversi in modo naturale, all'aria aperta, per stare bene nel proprio corpo il più a lungo possibile.</blockquote>
+      <p>Dentro ci sono la forza, l'equilibrio, la mobilità e la fiducia nel proprio corpo: tutto ciò che serve per invecchiare bene. Senza macchinari complicati e senza promesse miracolose.</p>
+      <ul class="pillars">
+        <li><strong>Si parte dalla tua vita.</strong> L'obiettivo è una cosa che vuoi tornare a fare, non un numero.</li>
+        <li><strong>Su misura, ogni giorno.</strong> Ogni sessione comincia con una domanda: come stai oggi?</li>
+        <li><strong>Anche in natura.</strong> Nel verde e nella sabbia di Libra, dove il corpo si muove come nella vita vera.</li>
+        <li><strong>Accanto ai professionisti.</strong> Quando serve, lavoro insieme al tuo fisioterapista e al tuo medico.</li>
+      </ul>
+    </div>
+    <img class="static-photo" src="assets/img/bouganville-m.jpg" alt="Una bouganville in fiore nel giardino di Libra">
+  </section>
+
+  <section id="gesti" class="tappa" data-photos="ruscello">
+    <div class="card">
+      <p class="eyebrow">Tappa 3 · I gesti della longevità</p>
+      <h2>Alcuni gesti di tutti i giorni dicono molto del tuo corpo.</h2>
+      <p>Alzarsi dalla sedia senza aiutarsi con le mani. Sedersi per terra e tornare in piedi. Fare le scale senza fermarsi.</p>
+      <p>Presto qui troverai un piccolo percorso per osservarli con calma, da solo o insieme a un tuo genitore. Non è un test medico: è un modo per capire da dove partire.</p>
+      <p class="soon">In arrivo</p>
+    </div>
+    <img class="static-photo" src="assets/img/ruscello-m.jpg" alt="Il ruscello nel verde intorno a Libra">
+  </section>
+
+  <section id="libra" class="tappa" data-photos="eventi-giardino">
+    <div class="card">
+      <p class="eyebrow">Tappa 4 · Libra</p>
+      <h2>Un piccolo posto immerso nella natura.</h2>
+      <p>Libra Terra Creativa è uno spazio nel verde di Pietrasanta, con piante tropicali, un giardino e una zona di allenamento all'aperto nella sabbia. Un posto dove tornare all'essenziale e sentirsi a casa.</p>
+      <p class="address">Via Santa Maria 33, Pietrasanta (LU)</p>
+      <a class="link" href="https://libraterracreativa.github.io/" target="_blank" rel="noopener">Scopri Libra</a>
+    </div>
+    <img class="static-photo" src="assets/img/eventi-giardino-m.jpg" alt="Il giardino di Libra con le piante tropicali">
+  </section>
+
+  <section id="storie" class="tappa">
+    <div class="card">
+      <p class="eyebrow">Tappa 5 · Storie</p>
+      <h2>Le persone che sono tornate alle loro cose.</h2>
+      <p>Qui racconteremo storie vere di chi si allena a Libra, con il loro permesso. Le prime arriveranno presto.</p>
+    </div>
+  </section>
+
+  <section id="domande" class="tappa">
+    <div class="card wide">
+      <p class="eyebrow">Tappa 6 · Domande frequenti</p>
+      <h2>Le domande che mi fanno più spesso</h2>
+      <details>
+        <summary>Alla mia età non è troppo tardi?</summary>
+        <p>Il corpo continua ad adattarsi a ogni età, se gli dai il tempo giusto. Si parte da dove sei oggi, con gradualità.</p>
+      </details>
+      <details>
+        <summary>Ho paura di farmi male.</summary>
+        <p>È una paura comprensibile, soprattutto dopo un intervento o una caduta. Si comincia da gesti semplici, con un appoggio e con me accanto, e si va avanti solo quando ti senti sicuro.</p>
+      </details>
+      <details>
+        <summary>Non sono il tipo da palestra.</summary>
+        <p>Libra non è una palestra: è un posto nel verde, piccolo e tranquillo. Spesso ci alleniamo all'aperto.</p>
+      </details>
+      <details>
+        <summary>Ho già fatto fisioterapia. Mi serve ancora?</summary>
+        <p>Quando la fisioterapia è finita, a volte forza e sicurezza vanno ancora costruite per tornare alle tue attività. In quel caso il mio lavoro continua quello del fisioterapista, non lo sostituisce.</p>
+      </details>
+      <details>
+        <summary>Come funziona il primo incontro?</summary>
+        <p>Ti ascolto: cosa fai, cosa vorresti tornare a fare. Poi osservo come cammini, come ti alzi, come stai in equilibrio, sempre vicino a un appoggio. Da lì capiamo insieme da dove partire.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="prenota" class="finale">
+    <div class="card">
+      <p class="eyebrow">In cima al percorso</p>
+      <h2>Richiedi il primo incontro.</h2>
+      <p>Scrivi alla segreteria: ti spieghiamo come funziona e troviamo insieme il giorno giusto.</p>
+      <div class="actions">
+        <a class="btn" href="#" data-whatsapp>Scrivici su WhatsApp</a>
+      </div>
+      <p class="todo">{{Numero WhatsApp della segreteria}}</p>
+      <div class="next">
+        <h3>Presto sul sito</h3>
+        <p>La richiesta di appuntamento online, i pacchetti di lezioni e l'area clienti, riservati a chi si registra.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p><strong>Simone Gatti</strong> · Chinesiologo · Libra Terra Creativa, Via Santa Maria 33, Pietrasanta</p>
+  <p class="small">Muoviti fuori. Stai bene dentro.</p>
+</footer>
+
+<script>
+  // La scena 3D si carica solo se le animazioni sono attive.
+  if (!document.documentElement.classList.contains('no-gl')) {
+    var s = document.createElement('script');
+    s.type = 'module';
+    s.src = 'assets/js/scena.js';
+    document.body.appendChild(s);
+  }
+</script>
+<script src="assets/js/sito.js"></script>
+</body>
+</html>
