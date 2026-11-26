@@ -1,9 +1,9 @@
-/* Mappa del corpo in 3D: la figura gira con il mouse o il dito; dove tocchi compare una chiazza rossa
+/* Mappa del corpo in 3D: la figura ruota sul suo asse seguendo il cursore (destra/sinistra dello schermo)
+   o il dito; dove tocchi compare una chiazza rossa
    e si apre la scheda della zona. Nessun dato salvato o inviato.
    Manichino: Xbot dagli esempi ufficiali di three.js (licenza MIT), caricato dal CDN. */
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 const figura = document.querySelector('.figura');
 const canvas = figura && figura.querySelector('.corpo3d');
@@ -18,13 +18,18 @@ function avvia() {
   const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 50);
   camera.position.set(0, 0.95, 5.6);
 
-  const controlli = new OrbitControls(camera, canvas);
-  controlli.target.set(0, 0.92, 0);
-  controlli.enableZoom = false; controlli.enablePan = false;
-  controlli.minPolarAngle = controlli.maxPolarAngle = Math.PI / 2.1;
-  controlli.enableDamping = true; controlli.dampingFactor = 0.08;
-  controlli.autoRotate = !fermo; controlli.autoRotateSpeed = 1.2;
-  controlli.update();
+  // rotazione sul proprio asse: segue il cursore da sinistra a destra dello schermo
+  const giro = { meta: 0, ora: 0 };
+  const mouse = matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (mouse && !fermo) {
+    addEventListener('pointermove', (e) => {
+      giro.meta = (e.clientX / innerWidth - 0.5) * Math.PI * 1.05; // circa da -95° a +95°: guarda verso il cursore
+    }, { passive: true });
+  }
+  const controlli = { update() {
+    giro.ora += (giro.meta - giro.ora) * (fermo ? 1 : 0.07);
+    if (modello) modello.rotation.y = giro.ora;
+  } };
 
   scena.add(new THREE.AmbientLight(0xffffff, 0.6));
   const luce = new THREE.DirectionalLight(0xffe2b8, 1.4); luce.position.set(2, 3, 3); scena.add(luce);
@@ -70,9 +75,8 @@ function avvia() {
     // Xbot è alto circa 1,8 m con i piedi a terra (il riquadro dei modelli animati non è affidabile)
     altezza = 1.8;
     // inquadro tutta la figura
-    controlli.target.set(0, altezza * 0.5, 0);
-    camera.position.set(0, altezza * 0.5, altezza * 2.25);
-    controlli.update();
+    camera.position.set(0, altezza * 0.55, altezza * 2.25);
+    camera.lookAt(0, altezza * 0.5, 0);
     // posa a riposo: braccia lungo il corpo e un respiro leggero
     const idle = g.animations.find((a) => /idle/i.test(a.name));
     if (idle) {
@@ -96,7 +100,12 @@ function avvia() {
   // tocco: distinguo il trascinamento dal tocco
   const ray = new THREE.Raycaster(), p = new THREE.Vector2();
   let giu = null;
-  canvas.addEventListener('pointerdown', (e) => { giu = [e.clientX, e.clientY]; controlli.autoRotate = false; });
+  let partenza = 0;
+  canvas.addEventListener('pointerdown', (e) => { giu = [e.clientX, e.clientY]; partenza = giro.meta; });
+  canvas.addEventListener('pointermove', (e) => {
+    if (!giu || e.pointerType === 'mouse') return;
+    giro.meta = partenza + (e.clientX - giu[0]) / canvas.clientWidth * Math.PI * 2;
+  });
   canvas.addEventListener('pointerup', (e) => {
     if (!giu || !modello) return;
     const mosso = Math.hypot(e.clientX - giu[0], e.clientY - giu[1]); giu = null;
