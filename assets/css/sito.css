@@ -291,3 +291,6 @@ main>section{position:relative;z-index:1}
 #percorso.scorre .tappa-p{animation:entra .6s var(--ease)}
 
 @media (prefers-reduced-motion:reduce){.float,.chi figure img,.tappa-p img{transition:none;transform:none!important}}
+/* la parola grande non parte mai sotto la barra */
+.hero-word{top:max(96px,12vh)}
+@media (max-width:700px){.hero-word{top:96px}}

@@ -120,7 +120,12 @@
     if (fermo) return;
     // apertura
     if (y < vh * 1.2) {
-      if (parola) parola.style.transform = 'translateY(' + (y * 0.4) + 'px)';
+      if (parola) {
+        parola.style.transform = 'translateY(' + (y * 0.6) + 'px)';
+        // svanisce prima di arrivare sotto la barra in alto
+        var spazio = Math.max(60, (parola.offsetTop - 75) / 0.4);
+        parola.style.opacity = Math.max(0, 1 - y / spazio).toFixed(3);
+      }
       if (heroBg) heroBg.style.transform = 'translateY(' + (y * 0.2) + 'px)';
     }
     // schede
