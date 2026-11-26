@@ -194,3 +194,56 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;paddin
 @media (prefers-reduced-motion:reduce){.rivela{opacity:1;transform:none;transition:none}.tappa-p{animation:none}html{scroll-behavior:auto}}
 .hero,.manifesto,.libra{isolation:isolate}
 .tappa-p[hidden]{display:none}
+
+/* ============ Sfondo sfumato dell'app Beyond Exercise: verde bosco con luci oro e salvia ============ */
+html,body{background:#0B140F}
+body{color:#F2EEE3}
+.aurora{position:fixed;inset:0;z-index:-5;overflow:hidden;pointer-events:none;
+  background:radial-gradient(120% 90% at 70% 0%,#1D3326 0%,#0F1C15 45%,#0A120D 100%)}
+.aurora i{position:absolute;border-radius:50%;filter:blur(10px)}
+.aurora i:nth-child(1){width:55vmax;height:55vmax;left:-12vmax;top:-18vmax;background:radial-gradient(circle,rgba(214,168,118,.40),transparent 66%);animation:au1 26s ease-in-out infinite alternate}
+.aurora i:nth-child(2){width:48vmax;height:48vmax;right:-14vmax;top:8vmax;background:radial-gradient(circle,rgba(107,114,88,.75),transparent 66%);animation:au2 32s ease-in-out infinite alternate}
+.aurora i:nth-child(3){width:42vmax;height:42vmax;left:18vmax;bottom:-20vmax;background:radial-gradient(circle,rgba(47,93,80,.75),transparent 66%);animation:au1 29s ease-in-out infinite alternate-reverse}
+.aurora i:nth-child(4){width:30vmax;height:30vmax;right:12vmax;bottom:-6vmax;background:radial-gradient(circle,rgba(185,133,63,.36),transparent 66%);animation:au2 35s ease-in-out infinite alternate-reverse}
+@keyframes au1{to{transform:translate(8vmax,6vmax) scale(1.1)}}
+@keyframes au2{to{transform:translate(-7vmax,5vmax) scale(.92)}}
+
+/* le sezioni diventano trasparenti e lasciano vedere lo sfondo */
+.crema,footer{background:transparent}
+h1,h2,h3,.grande,summary,.gesti-lista li,.address{color:#F2EEE3}
+p,details p{color:rgba(237,227,200,.72)}
+.grande span,.eyebrow,footer{color:rgba(237,227,200,.55)}
+.eyebrow::before{background:var(--oro)}
+.eyebrow::after,details,details:last-child,.gesti-lista li,.gesti-lista li:last-child{border-color:rgba(237,227,200,.14)}
+summary::after{color:var(--oro)}
+.pill.verde{background:linear-gradient(135deg,#E8C79A,var(--oro));color:#13201A}
+
+/* vetro scuro per schede e pulsanti */
+.float,.libra-card,.tappe{background:linear-gradient(135deg,rgba(255,255,255,.13),rgba(255,255,255,.04));
+  border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(22px) saturate(150%);-webkit-backdrop-filter:blur(22px) saturate(150%);
+  box-shadow:0 24px 60px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.2);color:#F2EEE3}
+.libra-card{background:rgba(16,28,21,.72)}
+.float small,.tappe button{color:rgba(237,227,200,.6)}
+.tappe button[aria-selected=true]{background:linear-gradient(135deg,#E8C79A,var(--oro));color:#13201A}
+.tag.scuro{color:var(--oro);border-color:rgba(214,168,118,.4)}
+.badge{background:rgba(214,168,118,.16);color:var(--oro)}
+.chi figure img,.tappa-p img{box-shadow:0 30px 70px rgba(0,0,0,.4)}
+.todo{background:rgba(240,140,120,.1);color:#F0B88C;border-color:rgba(240,140,120,.4)}
+
+/* barra in vetro scuro anche dopo l'apertura */
+.nav.chiara{background:rgba(16,28,21,.7);color:#F2EEE3;border-color:rgba(255,255,255,.14);box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.nav.chiara .brand img{filter:brightness(0) invert(1)}
+.nav.chiara .pill{background:linear-gradient(135deg,#E8C79A,var(--oro));color:#13201A}
+
+/* il finale resta verde pieno ma sfuma nello sfondo */
+.finale{background:radial-gradient(80% 90% at 50% 100%,rgba(214,168,118,.22),transparent 60%),rgba(31,58,45,.55)}
+.manifesto::before{background:rgba(11,20,15,.55)}
+@media (prefers-reduced-motion:reduce){.aurora i{animation:none}}
+/* sfumature più visibili, come negli screenshot dell'app */
+.aurora{background:radial-gradient(120% 90% at 70% 0%,#24402F 0%,#13241A 50%,#0C1610 100%)}
+.aurora i:nth-child(1){background:radial-gradient(circle,rgba(214,168,118,.55),transparent 64%)}
+.aurora i:nth-child(2){background:radial-gradient(circle,rgba(130,140,105,.8),transparent 64%)}
+.aurora i:nth-child(3){background:radial-gradient(circle,rgba(60,115,95,.85),transparent 64%)}
+.aurora i:nth-child(4){background:radial-gradient(circle,rgba(200,145,70,.5),transparent 64%)}
+.float{background:rgba(16,28,21,.82)}
+body{background:transparent}
