@@ -50,7 +50,7 @@
       <h2>Sono Simone, <em>chinesiologo.</em></h2>
       <figure class="f1">
         <img src="https://images.unsplash.com/photo-1782489634330-18a66bd2a3a8?w=900&q=80&auto=format" alt="Tre donne camminano insieme lungo un sentiero alberato" loading="lazy">
-        <figcaption class="float top">Camminare<small>senza paura di cadere</small></figcaption>
+        <figcaption class="float top" data-v="-0.10">Camminare<small>senza paura di cadere</small></figcaption>
       </figure>
       <div class="chi-testo">
         <p class="grande">Lavoro a Libra, a Pietrasanta, con le persone che vogliono continuare a fare le loro cose da sole: <span>camminare, salire le scale, viaggiare, stare con i nipoti.</span></p>
@@ -60,8 +60,8 @@
       </div>
       <figure class="f2">
         <img src="https://images.unsplash.com/photo-1790868956420-6062d2070fdf?w=900&q=80&auto=format" alt="Una donna seduta nel verde accanto a un pino, dopo l'allenamento" loading="lazy">
-        <figcaption class="float side">Su misura<small>ogni sessione parte da come stai oggi</small></figcaption>
-        <figcaption class="float bottom">All'aria aperta<small>nel verde e nella sabbia</small></figcaption>
+        <figcaption class="float side" data-v="0.08">Su misura<small>ogni sessione parte da come stai oggi</small></figcaption>
+        <figcaption class="float bottom" data-v="-0.14">All'aria aperta<small>nel verde e nella sabbia</small></figcaption>
       </figure>
     </div>
   </section>
@@ -82,6 +82,7 @@
 
   <!-- IL PERCORSO: quattro tappe come le schede di Mindora -->
   <section id="percorso" class="sezione crema">
+   <div class="percorso-sticky">
     <p class="eyebrow">Il percorso</p>
     <h2>Si parte dalla tua vita, <em>non da un numero.</em></h2>
     <div class="tappe" role="tablist" aria-label="Le tappe del percorso">
@@ -90,6 +91,7 @@
       <button role="tab" aria-selected="false" data-t="2">Allenamento <span>03</span></button>
       <button role="tab" aria-selected="false" data-t="3">Autonomia <span>04</span></button>
     </div>
+    <div class="avanza" aria-hidden="true"><i></i></div>
     <div class="tappa-box">
       <article class="tappa-p" data-t="0">
         <img src="https://images.unsplash.com/photo-1773394012169-0340c80a9647?w=1200&q=80&auto=format" alt="Un uomo cammina accanto a un lago" loading="lazy">
@@ -108,6 +110,7 @@
         <div><h3>Tornare alle tue cose.</h3><p>Il traguardo non è la palestra: è la vita fuori. Camminare tranquillo, viaggiare, giocare con i nipoti. E sapere cosa fare per continuare a stare bene.</p></div>
       </article>
     </div>
+   </div>
   </section>
 
   <!-- I GESTI DELLA LONGEVITÀ -->
@@ -180,5 +183,6 @@
 </footer>
 
 <script src="assets/js/sito.js"></script>
+<script src="assets/js/effetti.js"></script>
 </body>
 </html>

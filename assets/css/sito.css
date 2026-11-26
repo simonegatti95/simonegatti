@@ -247,3 +247,47 @@ summary::after{color:var(--oro)}
 .aurora i:nth-child(4){background:radial-gradient(circle,rgba(200,145,70,.5),transparent 64%)}
 .float{background:rgba(16,28,21,.82)}
 body{background:transparent}
+
+/* ======================= EFFETTI ======================= */
+main{position:relative}
+main>section{position:relative;z-index:1}
+/* 1. linea oro del percorso */
+.percorso-linea{position:absolute;left:0;top:0;width:100%;z-index:0;pointer-events:none;overflow:visible}
+.percorso-linea .traccia{stroke:rgba(227,176,116,.16);stroke-width:2;stroke-dasharray:8 10}
+.percorso-linea .oro{stroke:var(--oro);stroke-width:2.2;stroke-dasharray:8 10;filter:drop-shadow(0 0 6px rgba(227,176,116,.55))}
+.percorso-linea circle{fill:#13241A;stroke:rgba(227,176,116,.35);stroke-width:2;transition:fill .5s,stroke .5s,filter .5s}
+.percorso-linea circle.accesa{fill:var(--oro);stroke:#F5DDB8;filter:drop-shadow(0 0 10px rgba(227,176,116,.9))}
+@media (max-width:700px){.percorso-linea .oro,.percorso-linea .traccia{stroke-width:1.6}.sezione{padding-left:34px}}
+
+/* 2. apertura viva */
+.fx .hero-bg{animation:zoomIn 2.6s cubic-bezier(.2,.7,.2,1) both;will-change:transform}
+@keyframes zoomIn{from{scale:1.08}to{scale:1}}
+.fx .hero-word span{display:inline-block;opacity:0;filter:blur(14px);transform:translateY(.12em);animation:lettera 1s var(--ease) forwards}
+@keyframes lettera{to{opacity:1;filter:blur(0);transform:none}}
+.fx .hero-left,.fx .hero-right{animation:sali 1s var(--ease) 1s both}
+@keyframes sali{from{opacity:0;transform:translateY(20px)}}
+
+/* 3. vetro che riflette la luce del mouse */
+.float,.libra-card,.tappe,.nav{background-image:radial-gradient(320px circle at var(--gx,-400px) var(--gy,-400px),rgba(255,255,255,.12),transparent 45%)}
+.pill{background-image:radial-gradient(140px circle at var(--gx,-200px) var(--gy,-200px),rgba(255,255,255,.35),transparent 60%)}
+.pill.oro,.pill.verde,.nav.chiara .pill,.tappe button[aria-selected=true]{background-image:radial-gradient(140px circle at var(--gx,-200px) var(--gy,-200px),rgba(255,255,255,.45),transparent 60%),linear-gradient(135deg,#E8C79A,var(--oro))}
+.float{will-change:transform;transition:transform .2s linear}
+.chi figure,.tappa-p{overflow:visible}
+.chi figure img,.tappa-p img{transition:transform 1.2s var(--ease)}
+@media (hover:hover){.chi figure:hover img,.tappa-p:hover img{transform:scale(1.03)}}
+
+/* 4a. parole che si accendono */
+.fx .manifesto .parola{opacity:.22;transition:opacity .5s ease}
+.fx .manifesto .parola.accesa{opacity:1}
+
+/* 4b. tappe che avanzano scorrendo (solo computer) */
+#percorso.scorre{height:400vh;padding-top:0;padding-bottom:0}
+#percorso.scorre .percorso-sticky{position:sticky;top:0;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:90px 0 30px}
+#percorso.scorre h2{margin-bottom:28px}
+#percorso.scorre .tappa-p img{aspect-ratio:16/9;max-height:48vh}
+.avanza{display:none;height:2px;margin:14px 28px 0;background:rgba(237,227,200,.12);border-radius:2px;overflow:hidden}
+.avanza i{display:block;height:100%;background:var(--oro);transform-origin:left;transform:scaleX(0)}
+#percorso.scorre .avanza{display:block}
+#percorso.scorre .tappa-p{animation:entra .6s var(--ease)}
+
+@media (prefers-reduced-motion:reduce){.float,.chi figure img,.tappa-p img{transition:none;transform:none!important}}
