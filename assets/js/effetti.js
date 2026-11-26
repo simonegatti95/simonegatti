@@ -88,7 +88,7 @@
   var sezPerc = document.getElementById('percorso');
   var tabs = [].slice.call(document.querySelectorAll('.tappe [role=tab]'));
   var barra = document.querySelector('.avanza i');
-  var scorrePerc = function () { return !fermo && innerWidth > 700; };
+  var scorrePerc = function () { return !fermo && innerWidth > 700 && innerHeight >= 560; };
   var attiva = -1;
   function mostra(i) {
     if (i === attiva) return; attiva = i;
