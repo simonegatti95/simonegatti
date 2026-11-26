@@ -391,3 +391,26 @@ main>section{position:relative;z-index:1}
 /* a foto aperta, le schede che sporgono restano visibili */
 .fx .chi figure.rivela.vista{clip-path:inset(-90px -90px -90px -90px)}
 .risposte[hidden],.esito[hidden],.gesto[hidden]{display:none}
+
+/* ============ Ologrammi (stile scheda posturale, nei colori del brand) ============ */
+.figura{max-width:380px;border-radius:var(--r);overflow:hidden;background:#0B140F;border:1px solid rgba(227,176,116,.22);
+  box-shadow:0 30px 80px rgba(0,0,0,.45),0 0 80px rgba(227,176,116,.08)}
+.figura img{display:block;width:100%;aspect-ratio:2/3;object-fit:cover}
+.figura .piombo{position:absolute;left:50%;top:6%;bottom:4%;border-left:1px dashed rgba(227,176,116,.55)}
+.figura .orizz{position:absolute;left:18%;right:18%;border-top:1px dashed rgba(227,176,116,.45)}
+.figura .o1{top:24%}.figura .o2{top:49%}
+.figura.tutto img{filter:brightness(1.25) drop-shadow(0 0 20px rgba(227,176,116,.5))}
+.zona{width:30px;height:30px;font-size:inherit;color:inherit;background:rgba(11,20,15,.6)}
+.zona::before{inset:8px}
+.zona span{position:absolute;left:calc(100% + 12px);top:50%;transform:translateY(-50%);white-space:nowrap;
+  font-size:13px;font-weight:500;color:var(--crema);padding:6px 10px;border-radius:10px;
+  background:rgba(16,28,21,.72);border:1px solid rgba(227,176,116,.35);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  transition:background .3s,color .3s}
+.zona[data-z=schiena] span{left:auto;right:calc(100% + 12px)}
+.zona[aria-pressed=true] span,.zona:hover span{background:linear-gradient(135deg,#E8C79A,var(--oro));color:#13201A}
+@media (max-width:700px){.zona span{display:none}.figura{max-width:260px}}
+
+.foto-gesto{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;margin-bottom:18px;
+  border:1px solid rgba(227,176,116,.2);box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.fx .gesto.disegna .foto-gesto{animation:ologramma 1.1s var(--ease) both}
+@keyframes ologramma{from{opacity:0;filter:brightness(2) blur(6px);scale:1.03}to{opacity:1;filter:none;scale:1}}

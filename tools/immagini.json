@@ -1,0 +1,83 @@
+{
+  "comune": "Create ONE photorealistic editorial photograph for the website of a kinesiologist who helps people over 60 stay independent through natural movement outdoors. It must look like a real photo taken by a professional photographer with natural light, not an illustration and not a 3D render. Real skin texture, natural proportions, dignified and calm mood, warm golden late-afternoon light. Colour palette: deep forest green, warm cream, soft gold. Setting when outdoors: a small private garden studio in Tuscany (Pietrasanta) with tropical plants, palms, bougainvillea and an outdoor training area of fine pale sand. No text, no logos, no watermarks, no gym machines, no medical equipment.",
+  "immagini": [
+    {
+      "id": "corpo",
+      "aspect": "2:3",
+      "prompt": "Full-body portrait, front view, perfectly centred and symmetrical: a fit, healthy man about 65 years old with short grey hair and a trimmed grey beard, standing upright and relaxed, arms hanging naturally a little away from the body, feet hip-width apart, barefoot, calm kind expression looking at the camera. He wears a plain fitted sage-green short-sleeve t-shirt and soft cream knee-length shorts, so knees, ankles and arms are visible. Seamless studio backdrop in very dark forest green (#13241A) fading to almost black at the edges, with a warm golden rim light from behind outlining his silhouette and a soft key light on the front. Whole body from head to feet visible with generous empty space above the head and below the feet. Low-key, elegant, like a premium wellness brand campaign."
+    },
+    {
+      "id": "g1",
+      "aspect": "4:3",
+      "prompt": "A woman about 67 years old with short silver hair, wearing a loose sage-green linen shirt and cream trousers, is in the middle of standing up from a simple wooden chair WITHOUT using her hands: arms crossed over her chest, torso leaning slightly forward, hips just lifting off the seat, focused gentle expression. The chair stands on the pale sand of the garden training area, tropical plants and palms softly blurred behind. Side three-quarter view, whole body and chair in frame."
+    },
+    {
+      "id": "g2",
+      "aspect": "4:3",
+      "rif": [
+        "tools/generate/g1/v1.jpg"
+      ],
+      "prompt": "The same woman (see reference) balances on one leg on the pale sand: one foot lifted a little off the ground with the knee bent, one hand resting lightly on a low garden wall next to her for safety, the other arm relaxed, steady calm smile. Tropical plants softly blurred behind. Whole body in frame, front three-quarter view."
+    },
+    {
+      "id": "g3",
+      "aspect": "4:3",
+      "rif": [
+        "tools/generate/g1/v1.jpg"
+      ],
+      "prompt": "The same woman (see reference) is getting up from sitting on a cream cotton mat laid on the pale sand: she is in a half-kneeling position, one knee down and one foot planted, one hand pushing on her front knee, about to stand. Natural, unhurried, safe movement. Tropical garden softly blurred behind. Whole body in frame, side view."
+    },
+    {
+      "id": "g4",
+      "aspect": "4:3",
+      "rif": [
+        "tools/generate/g1/v1.jpg"
+      ],
+      "prompt": "The same woman (see reference) walks up a short flight of old stone garden steps with a simple iron handrail, one hand lightly on the rail, one foot on the next step, upright posture. Plants and bougainvillea along the steps, golden light. Whole body in frame, side three-quarter view from slightly below."
+    },
+    {
+      "id": "g5",
+      "aspect": "4:3",
+      "rif": [
+        "tools/generate/g1/v1.jpg"
+      ],
+      "prompt": "The same woman (see reference) walks slowly along a garden path of pale sand and turns her head and shoulders to look back over her shoulder, as if someone called her name, mid-step and balanced, relaxed smile. Palms and tropical plants around. Whole body in frame, front three-quarter view."
+    },
+    {
+      "id": "h_corpo",
+      "aspect": "2:3",
+      "prompt": "Create ONE image. A glowing translucent glass mannequin figure, like a medical hologram: smooth featureless anatomical mannequin, semi-transparent glass with a faint inner skeleton softly visible, edges lit by warm golden light (#E3B074) with soft gold inner glow. Background: plain deep forest green (#13241A) studio darkness fading to near black (#0B140F) at the edges, with a very subtle fine grid. NO garden, NO plants, NO landscape, NO sky, NO environment: only the figure on the dark green background. Elegant, calm, minimal, premium health-tech look. No text, no numbers, no labels, no UI, no drawn lines. Whole figure in frame with empty space around it. Pose: standing upright, side view facing right, arms relaxed along the body, feet together, perfectly centred, head near the top third.",
+      "senza_comune": true
+    },
+    {
+      "id": "h1",
+      "aspect": "4:3",
+      "prompt": "Create ONE image. A glowing translucent glass mannequin figure, like a medical hologram: smooth featureless anatomical mannequin, semi-transparent glass with a faint inner skeleton softly visible, edges lit by warm golden light (#E3B074) with soft gold inner glow. Background: plain deep forest green (#13241A) studio darkness fading to near black (#0B140F) at the edges, with a very subtle fine grid. NO garden, NO plants, NO landscape, NO sky, NO environment: only the figure on the dark green background. Elegant, calm, minimal, premium health-tech look. No text, no numbers, no labels, no UI, no drawn lines. Whole figure in frame with empty space around it. Pose: side view, the figure is rising from a simple translucent glass chair WITHOUT using the hands, arms crossed over the chest, torso leaning forward, hips just leaving the seat. The chair is drawn in the same glowing translucent gold style.",
+      "senza_comune": true
+    },
+    {
+      "id": "h2",
+      "aspect": "4:3",
+      "prompt": "Create ONE image. A glowing translucent glass mannequin figure, like a medical hologram: smooth featureless anatomical mannequin, semi-transparent glass with a faint inner skeleton softly visible, edges lit by warm golden light (#E3B074) with soft gold inner glow. Background: plain deep forest green (#13241A) studio darkness fading to near black (#0B140F) at the edges, with a very subtle fine grid. NO garden, NO plants, NO landscape, NO sky, NO environment: only the figure on the dark green background. Elegant, calm, minimal, premium health-tech look. No text, no numbers, no labels, no UI, no drawn lines. Whole figure in frame with empty space around it. Pose: front three-quarter view, standing balanced on one leg, the other knee lifted and bent, arms slightly open for balance, steady.",
+      "senza_comune": true
+    },
+    {
+      "id": "h3",
+      "aspect": "4:3",
+      "prompt": "Create ONE image. A glowing translucent glass mannequin figure, like a medical hologram: smooth featureless anatomical mannequin, semi-transparent glass with a faint inner skeleton softly visible, edges lit by warm golden light (#E3B074) with soft gold inner glow. Background: plain deep forest green (#13241A) studio darkness fading to near black (#0B140F) at the edges, with a very subtle fine grid. NO garden, NO plants, NO landscape, NO sky, NO environment: only the figure on the dark green background. Elegant, calm, minimal, premium health-tech look. No text, no numbers, no labels, no UI, no drawn lines. Whole figure in frame with empty space around it. Pose: side view, the mannequin is half-kneeling on the floor, one knee down and the other foot planted in front, one hand resting on the front knee, about to stand up.",
+      "senza_comune": true
+    },
+    {
+      "id": "h4",
+      "aspect": "4:3",
+      "prompt": "Create ONE image. A glowing translucent glass mannequin figure, like a medical hologram: smooth featureless anatomical mannequin, semi-transparent glass with a faint inner skeleton softly visible, edges lit by warm golden light (#E3B074) with soft gold inner glow. Background: plain deep forest green (#13241A) studio darkness fading to near black (#0B140F) at the edges, with a very subtle fine grid. NO garden, NO plants, NO landscape, NO sky, NO environment: only the figure on the dark green background. Elegant, calm, minimal, premium health-tech look. No text, no numbers, no labels, no UI, no drawn lines. Whole figure in frame with empty space around it. Pose: side view, climbing a short flight of three translucent glass steps rendered in the same glowing gold style, one foot on the next step, upright posture.",
+      "senza_comune": true
+    },
+    {
+      "id": "h5",
+      "aspect": "4:3",
+      "prompt": "Create ONE image. A glowing translucent glass mannequin figure, like a medical hologram: smooth featureless anatomical mannequin, semi-transparent glass with a faint inner skeleton softly visible, edges lit by warm golden light (#E3B074) with soft gold inner glow. Background: plain deep forest green (#13241A) studio darkness fading to near black (#0B140F) at the edges, with a very subtle fine grid. NO garden, NO plants, NO landscape, NO sky, NO environment: only the figure on the dark green background. Elegant, calm, minimal, premium health-tech look. No text, no numbers, no labels, no UI, no drawn lines. Whole figure in frame with empty space around it. Pose: front three-quarter view, walking mid-step and turning head and shoulders to look back over the shoulder, balanced.",
+      "senza_comune": true
+    }
+  ]
+}

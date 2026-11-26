@@ -122,18 +122,13 @@
     <h2>Tocca il punto del corpo <em>che ti preoccupa.</em></h2>
     <div class="corpo">
       <div class="figura">
-        <svg viewBox="0 0 200 430" aria-hidden="true">
-          <circle cx="100" cy="42" r="24"/>
-          <path d="M100 66 V84 M58 98 Q100 84 142 98 M58 98 L50 170 L44 236 M142 98 L150 170 L156 236
-                   M70 100 Q66 160 74 214 M130 100 Q134 160 126 214 M74 214 Q100 224 126 214
-                   M76 218 L80 312 L82 400 M124 218 L120 312 L118 400 M82 400 L66 414 M118 400 L134 414
-                   M98 226 L92 312 L90 398 M102 226 L108 312 L110 398"/>
-        </svg>
-        <button class="zona" data-z="spalle" style="--x:50%;--y:22%">Collo e spalle</button>
-        <button class="zona" data-z="schiena" style="--x:50%;--y:37%">Schiena</button>
-        <button class="zona" data-z="anche" style="--x:50%;--y:51%">Anche</button>
-        <button class="zona" data-z="ginocchia" style="--x:50%;--y:72%">Ginocchia</button>
-        <button class="zona" data-z="piedi" style="--x:50%;--y:94%">Caviglie e piedi</button>
+        <img src="assets/img/corpo-ologramma.jpg" alt="Figura del corpo in vetro luminoso, vista di lato" loading="lazy">
+        <i class="piombo" aria-hidden="true"></i><i class="orizz o1" aria-hidden="true"></i><i class="orizz o2" aria-hidden="true"></i>
+        <button class="zona" data-z="spalle" style="--x:50%;--y:24%"><span>Collo e spalle</span></button>
+        <button class="zona" data-z="schiena" style="--x:43%;--y:36%"><span>Schiena</span></button>
+        <button class="zona" data-z="anche" style="--x:46%;--y:49%"><span>Anche</span></button>
+        <button class="zona" data-z="ginocchia" style="--x:50%;--y:67%"><span>Ginocchia</span></button>
+        <button class="zona" data-z="piedi" style="--x:50%;--y:86%"><span>Caviglie e piedi</span></button>
       </div>
       <div class="corpo-lato">
         <div class="zone-lista" role="group" aria-label="Scegli una zona">
@@ -164,35 +159,35 @@
         <div class="gesti-passi" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
 
         <article class="gesto" data-g="0">
-          <svg viewBox="0 0 240 190" class="disegno"><path pathLength="1" d="M20 172 H220 M36 118 H86 M86 118 V172 M36 118 V172 M36 118 V64"/><circle pathLength="1" cx="60" cy="62" r="9"/><path pathLength="1" d="M60 71 L63 113 L92 113 L92 168 M62 84 L74 100 L60 104"/><path class="dopo" pathLength="1" d="M108 118 h24 M126 112 l8 6 l-8 6"/><circle class="dopo" pathLength="1" cx="178" cy="40" r="9"/><path class="dopo" pathLength="1" d="M178 49 V106 M178 106 L168 168 M178 106 L188 168 M178 64 L164 76 L178 86 M178 64 L192 76 L178 86"/></svg>
+          <img class="foto-gesto" src="assets/img/gesto-1.jpg" alt="Figura luminosa che si alza da una sedia con le braccia incrociate" loading="lazy">
           <p class="n">Gesto 1 di 5</p>
           <h3>Alzarti dalla sedia senza usare le mani</h3>
           <p>Siediti su una sedia stabile, incrocia le braccia sul petto e alzati.</p>
           <p class="perche">È il gesto che usi ogni giorno per alzarti dal divano, dal letto, dalla macchina.</p>
         </article>
         <article class="gesto" data-g="1" hidden>
-          <svg viewBox="0 0 240 190" class="disegno"><path pathLength="1" d="M20 172 H220 M190 40 V172"/><circle pathLength="1" cx="120" cy="40" r="9"/><path pathLength="1" d="M120 49 V106 M120 106 V170 M120 106 L142 124 L132 146 M120 62 L96 80 M120 62 L146 74 L188 76"/></svg>
+          <img class="foto-gesto" src="assets/img/gesto-2.jpg" alt="Figura luminosa in equilibrio su una gamba" loading="lazy">
           <p class="n">Gesto 2 di 5</p>
           <h3>Stare su una gamba per qualche secondo</h3>
           <p>Vicino a un tavolo o a un muro, solleva un piede da terra e conta piano fino a dieci. Poi cambia gamba.</p>
           <p class="perche">L'equilibrio è quello che ti tiene in piedi quando inciampi.</p>
         </article>
         <article class="gesto" data-g="2" hidden>
-          <svg viewBox="0 0 240 190" class="disegno"><path pathLength="1" d="M20 172 H220"/><circle pathLength="1" cx="58" cy="112" r="9"/><path pathLength="1" d="M58 121 L62 156 M62 156 L38 166 L84 168 M60 132 L44 156"/><path class="dopo" pathLength="1" d="M104 140 h24 M122 134 l8 6 l-8 6"/><circle class="dopo" pathLength="1" cx="178" cy="40" r="9"/><path class="dopo" pathLength="1" d="M178 49 V106 M178 106 L168 168 M178 106 L188 168 M178 64 L164 90 M178 64 L192 90"/></svg>
+          <img class="foto-gesto" src="assets/img/gesto-3.jpg" alt="Figura luminosa in ginocchio che sta per rialzarsi da terra" loading="lazy">
           <p class="n">Gesto 3 di 5</p>
           <h3>Sederti a terra e tornare in piedi</h3>
           <p>Su un tappeto, scendi a sederti come ti viene e rialzati. Puoi aiutarti con le mani o con una sedia.</p>
           <p class="perche">Serve per giocare con i nipoti, per stare in spiaggia, e se un giorno cadi.</p>
         </article>
         <article class="gesto" data-g="3" hidden>
-          <svg viewBox="0 0 240 190" class="disegno"><path pathLength="1" d="M20 172 H76 V142 H126 V112 H176 V82 H220"/><circle pathLength="1" cx="112" cy="40" r="9"/><path pathLength="1" d="M112 49 L110 96 M110 96 L102 140 M110 96 L132 100 L134 110 M112 62 L98 84 M112 62 L128 82"/></svg>
+          <img class="foto-gesto" src="assets/img/gesto-4.jpg" alt="Figura luminosa che sale tre gradini" loading="lazy">
           <p class="n">Gesto 4 di 5</p>
           <h3>Fare una rampa di scale senza fermarti</h3>
           <p>Una rampa normale, al tuo passo, tenendoti al corrimano se vuoi.</p>
           <p class="perche">Le scale chiedono forza alle gambe e fiato, insieme.</p>
         </article>
         <article class="gesto" data-g="4" hidden>
-          <svg viewBox="0 0 240 190" class="disegno"><path pathLength="1" d="M20 172 H220"/><circle pathLength="1" cx="120" cy="40" r="9"/><path pathLength="1" d="M120 49 V106 M120 106 L104 168 M120 106 L138 168 M120 62 L104 92 M120 62 L138 88"/><path class="dopo" pathLength="1" d="M108 28 Q120 12 136 24 M130 18 l6 6 l-8 2"/></svg>
+          <img class="foto-gesto" src="assets/img/gesto-5.jpg" alt="Figura luminosa che cammina e si gira a guardare indietro" loading="lazy">
           <p class="n">Gesto 5 di 5</p>
           <h3>Girarti a guardare indietro mentre cammini</h3>
           <p>Cammina piano in un posto sgombro, poi gira testa e spalle per guardare dietro di te.</p>
