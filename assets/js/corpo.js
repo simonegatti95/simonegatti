@@ -58,4 +58,5 @@
     scheda.classList.remove('entra'); void scheda.offsetWidth; scheda.classList.add('entra');
   }
   bottoni.forEach(function (b) { b.addEventListener('click', function () { apri(b.dataset.z); }); });
+  window.apriZona = apri; // usata dalla figura 3D
 })();
