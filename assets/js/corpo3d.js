@@ -1,7 +1,7 @@
 /* Mappa del corpo in 3D: la figura ruota sul suo asse seguendo il cursore (destra/sinistra dello schermo)
    o il dito; dove tocchi compare una chiazza rossa
    e si apre la scheda della zona. Nessun dato salvato o inviato.
-   Manichino: Xbot dagli esempi ufficiali di three.js (licenza MIT), caricato dal CDN. */
+   Figura: base mesh maschile CC0 (orange-juice-games), in assets/modelli/corpo.glb. */
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
@@ -23,16 +23,16 @@ function avvia() {
   const mouse = matchMedia('(hover: hover) and (pointer: fine)').matches;
   if (mouse && !fermo) {
     addEventListener('pointermove', (e) => {
-      giro.meta = (e.clientX / innerWidth - 0.5) * Math.PI * 1.05; // circa da -95° a +95°: guarda verso il cursore
+      giro.meta = -(e.clientX / innerWidth - 0.5) * Math.PI * 2; // cursore a destra: il corpo gira a sinistra, fino a 180°
     }, { passive: true });
   }
   const controlli = { update() {
     giro.ora += (giro.meta - giro.ora) * (fermo ? 1 : 0.07);
-    if (modello) modello.rotation.y = giro.ora;
+    perno.rotation.y = giro.ora;
   } };
 
-  scena.add(new THREE.AmbientLight(0xffffff, 0.6));
-  const luce = new THREE.DirectionalLight(0xffe2b8, 1.4); luce.position.set(2, 3, 3); scena.add(luce);
+  scena.add(new THREE.AmbientLight(0xffffff, 0.18));
+  const luce = new THREE.DirectionalLight(0xffe2b8, 0.55); luce.position.set(2, 3, 3); scena.add(luce);
 
   // le chiazze rosse: posizioni nello spazio del manichino, passate allo shader
   const punti = []; // Vector3 locali
@@ -68,26 +68,52 @@ function avvia() {
   }
 
   let modello = null, altezza = 1.8, mixer = null;
+  const perno = new THREE.Group(); // gira su se stesso seguendo il cursore
+  scena.add(perno);
   const orologio = new THREE.Clock();
-  new GLTFLoader().load('https://cdn.jsdelivr.net/gh/mrdoob/three.js@r160/examples/models/gltf/Xbot.glb', (g) => {
+  const v1 = new THREE.Vector3(), v2 = new THREE.Vector3();
+  const pos = (n) => modello.getObjectByName(n).getWorldPosition(new THREE.Vector3());
+
+  // ruota un osso attorno a un asse del mondo, tenendo conto dei genitori
+  function giraOsso(osso, asse, ang) {
+    const qp = osso.parent.getWorldQuaternion(new THREE.Quaternion());
+    const qw = new THREE.Quaternion().setFromAxisAngle(asse, ang);
+    osso.quaternion.premultiply(qp.clone().invert().multiply(qw).multiply(qp));
+    osso.updateMatrixWorld(true);
+  }
+
+  // Base mesh maschile CC0 (orange-juice-games, via BoQsc/Godot-3D-Male-Base-Mesh)
+  new GLTFLoader().load('assets/modelli/corpo.glb', (g) => { try {
     modello = g.scene;
     modello.traverse((o) => { if (o.isMesh) { o.material = vetroOro(o.material); o.frustumCulled = false; } });
-    // Xbot è alto circa 1,8 m con i piedi a terra (il riquadro dei modelli animati non è affidabile)
-    altezza = 1.8;
-    // inquadro tutta la figura
-    camera.position.set(0, altezza * 0.55, altezza * 2.25);
-    camera.lookAt(0, altezza * 0.5, 0);
-    // posa a riposo: braccia lungo il corpo e un respiro leggero
-    const idle = g.animations.find((a) => /idle/i.test(a.name));
-    if (idle) {
-      mixer = new THREE.AnimationMixer(modello);
-      mixer.clipAction(idle).play();
-      mixer.update(0.01);
-      if (fermo) mixer.timeScale = 0;
+    perno.add(modello);
+    modello.updateMatrixWorld(true);
+
+    // la figura guarda verso di noi: punta del piede davanti al tallone
+    const avanti = pos('toeL').sub(pos('heel02L')).setY(0).normalize();
+    modello.rotation.y = Math.atan2(-avanti.x, avanti.z) + modello.rotation.y;
+    modello.updateMatrixWorld(true);
+
+    // dalla posa a T alle braccia lungo i fianchi
+    for (const lato of ['L', 'R']) {
+      const spalla = modello.getObjectByName('upper_arm' + lato);
+      const dir = pos('forearm' + lato).sub(pos('upper_arm' + lato)).normalize();
+      const giu = new THREE.Vector3(0, -1, 0);
+      const asse = new THREE.Vector3().crossVectors(dir, giu).normalize();
+      giraOsso(spalla, asse, dir.angleTo(giu) - 0.16);
     }
-    scena.add(modello);
+
+    // misuro con le ossa e appoggio i piedi a terra
+    let ymin = Infinity, ymax = -Infinity;
+    modello.traverse((o) => { if (o.isBone) { o.getWorldPosition(v1); ymin = Math.min(ymin, v1.y); ymax = Math.max(ymax, v1.y); } });
+    altezza = (ymax - ymin) * 1.1;
+    modello.position.y -= ymin - altezza * 0.01;
+    modello.updateMatrixWorld(true);
+
+    camera.position.set(0, altezza * 0.55, altezza * 2.3);
+    camera.lookAt(0, altezza * 0.5, 0);
     figura.classList.add('tre');
-  }, undefined, () => {}); // se non si carica resta l'immagine
+  } catch (err) { console.error('corpo3d', err); } }, undefined, (err) => console.error('corpo3d', err)); // se non si carica resta l'immagine
 
   // dimensioni
   function misura() {
@@ -121,7 +147,7 @@ function avvia() {
     // tocco vicino a una chiazza esistente: la tolgo
     const vicino = punti.findIndex((q) => q.distanceTo(loc) < 0.08);
     if (vicino >= 0) { punti.splice(vicino, 1); }
-    else { punti.push(loc); if (punti.length > MAX) punti.shift(); window.apriZona && window.apriZona(zona(loc)); }
+    else { punti.push(loc); if (punti.length > MAX) punti.shift(); window.apriZona && window.apriZona(zona(perno.worldToLocal(hit.point.clone()))); }
     aggiornaPunti();
   });
 
