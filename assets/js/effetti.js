@@ -64,7 +64,7 @@
     var t = parola.textContent;
     parola.innerHTML = t.split('').map(function (c, i) { return '<span style="animation-delay:' + (300 + i * 70) + 'ms">' + c + '</span>'; }).join('');
   }
-  var heroBg = document.querySelector('.hero-bg'), heroTesti = document.querySelectorAll('.hero-left, .hero-right');
+  var heroSez = document.querySelector('.hero'), heroBg = document.querySelector('.hero-bg'), heroTesti = document.querySelectorAll('.hero-left, .hero-right');
 
   /* ---------- 4a. Parole che si accendono ---------- */
   var quote = document.querySelector('.manifesto blockquote'), parole = [];
@@ -127,6 +127,8 @@
         parola.style.opacity = Math.max(0, 1 - y / spazio).toFixed(3);
       }
       if (heroBg) heroBg.style.transform = 'translateY(' + (y * 0.2) + 'px)';
+      var k = Math.min(1, y / (vh * 0.8));
+      heroSez.style.setProperty('--stacca', k.toFixed(3));
     }
     // schede
     floats.forEach(function (f) {
@@ -171,5 +173,16 @@
         g.style.setProperty('--gy', (ev.clientY - r.top) + 'px');
       });
     }, { passive: true });
+  }
+  /* ---------- Pulsanti magnetici: seguono appena il mouse ---------- */
+  if (!fermo && matchMedia('(hover: hover)').matches) {
+    document.querySelectorAll('.pill, .risposte button').forEach(function (b) {
+      b.addEventListener('pointermove', function (e) {
+        var r = b.getBoundingClientRect();
+        var dx = (e.clientX - r.left - r.width / 2) / r.width, dy = (e.clientY - r.top - r.height / 2) / r.height;
+        b.style.translate = (dx * 8).toFixed(1) + 'px ' + (dy * 6).toFixed(1) + 'px';
+      });
+      b.addEventListener('pointerleave', function () { b.style.translate = ''; });
+    });
   }
 })();

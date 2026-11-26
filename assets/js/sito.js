@@ -15,7 +15,7 @@
   });
 
   /* Le sezioni compaiono con calma mentre scorri */
-  var el = document.querySelectorAll('.sezione h2, .chi figure, .chi-testo, .tappa-box, .gesti-lista, .libra-card, .faq details, .manifesto-testo');
+  var el = document.querySelectorAll('.sezione h2, .finale h2, .chi figure, .tappa-p img, .libra-card');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (es) {
       es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('vista'); io.unobserve(e.target); } });

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Simone Gatti · Chinesiologo a Pietrasanta</title>
+<title>Simone Gatti, chinesiologo a Pietrasanta</title>
 <meta name="description" content="Simone Gatti, chinesiologo a Libra, Pietrasanta. Aiuto le persone over 50 a tornare a camminare e vivere in autonomia, con un allenamento su misura anche in natura.">
 <meta name="theme-color" content="#1F3A2D">
 <link rel="icon" href="assets/img/pittogramma.png">
@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="assets/css/sito.css">
 </head>
 <body>
+<svg class="grana" aria-hidden="true"><filter id="rumore"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .55 0"/></filter><rect width="100%" height="100%" filter="url(#rumore)"/></svg>
 <div class="aurora" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 
 <header class="nav">
@@ -21,6 +22,8 @@
   <nav aria-label="Sezioni">
     <a href="#chi-sono">Chi sono</a>
     <a href="#percorso">Il percorso</a>
+    <a href="#corpo">Il corpo</a>
+    <a href="#gesti">I gesti</a>
     <a href="#libra">Libra</a>
     <a href="#domande">Domande</a>
   </nav>
@@ -33,14 +36,14 @@
     <img class="hero-bg" src="https://images.unsplash.com/photo-1774194647558-713c89f149d8?w=2000&q=80&auto=format" alt="Una coppia cammina su una passerella di legno tra l'erba alta" fetchpriority="high">
     <p class="hero-word" aria-hidden="true">Autonomia</p>
     <div class="hero-left">
-      <p class="tag">Chinesiologo · Pietrasanta</p>
+      <p class="tag">Chinesiologo a Pietrasanta</p>
       <h1>Muoversi bene,<br><em>il più a lungo possibile.</em></h1>
     </div>
     <div class="hero-right">
       <p>Aiuto le persone over 50 a tornare a camminare e vivere in autonomia, con un allenamento su misura anche in natura.</p>
-      <a class="pill light" href="#prenota">Richiedi il primo incontro <span aria-hidden="true">›</span></a>
+      <a class="pill light" href="#prenota">Richiedi il primo incontro</a>
     </div>
-    <div class="hero-strip"><span>Libra · Via Santa Maria 33</span><span>Anche all'aperto, nel verde</span></div>
+    <div class="hero-strip"><span>A Libra, in via Santa Maria 33</span><span>Anche all'aperto, nel verde</span></div>
   </section>
 
   <!-- CHI SONO: testo al centro, due foto con le schede che galleggiano -->
@@ -56,7 +59,7 @@
         <p class="grande">Lavoro a Libra, a Pietrasanta, con le persone che vogliono continuare a fare le loro cose da sole: <span>camminare, salire le scale, viaggiare, stare con i nipoti.</span></p>
         <p>Prima di qualsiasi esercizio ti faccio una domanda: cosa vorresti tornare a fare? Da quella risposta costruiamo il percorso.</p>
         <p class="todo">{{Due righe sulla tua storia: perché hai scelto questo lavoro.}}</p>
-        <a class="pill verde" href="#prenota">Parliamone <span aria-hidden="true">›</span></a>
+        <a class="pill verde" href="#prenota">Parliamone</a>
       </div>
       <figure class="f2">
         <img src="https://images.unsplash.com/photo-1790868956420-6062d2070fdf?w=900&q=80&auto=format" alt="Una donna seduta nel verde accanto a un pino, dopo l'allenamento" loading="lazy">
@@ -113,20 +116,106 @@
    </div>
   </section>
 
-  <!-- I GESTI DELLA LONGEVITÀ -->
+  <!-- MAPPA DEL CORPO -->
+  <section id="corpo" class="sezione">
+    <p class="eyebrow">Dove senti fatica?</p>
+    <h2>Tocca il punto del corpo <em>che ti preoccupa.</em></h2>
+    <div class="corpo">
+      <div class="figura">
+        <svg viewBox="0 0 200 430" aria-hidden="true">
+          <circle cx="100" cy="42" r="24"/>
+          <path d="M100 66 V84 M58 98 Q100 84 142 98 M58 98 L50 170 L44 236 M142 98 L150 170 L156 236
+                   M70 100 Q66 160 74 214 M130 100 Q134 160 126 214 M74 214 Q100 224 126 214
+                   M76 218 L80 312 L82 400 M124 218 L120 312 L118 400 M82 400 L66 414 M118 400 L134 414
+                   M98 226 L92 312 L90 398 M102 226 L108 312 L110 398"/>
+        </svg>
+        <button class="zona" data-z="spalle" style="--x:50%;--y:22%">Collo e spalle</button>
+        <button class="zona" data-z="schiena" style="--x:50%;--y:37%">Schiena</button>
+        <button class="zona" data-z="anche" style="--x:50%;--y:51%">Anche</button>
+        <button class="zona" data-z="ginocchia" style="--x:50%;--y:72%">Ginocchia</button>
+        <button class="zona" data-z="piedi" style="--x:50%;--y:94%">Caviglie e piedi</button>
+      </div>
+      <div class="corpo-lato">
+        <div class="zone-lista" role="group" aria-label="Scegli una zona">
+          <button data-z="spalle">Collo e spalle</button>
+          <button data-z="schiena">Schiena</button>
+          <button data-z="anche">Anche</button>
+          <button data-z="ginocchia">Ginocchia</button>
+          <button data-z="piedi">Caviglie e piedi</button>
+          <button data-z="equilibrio">Equilibrio</button>
+        </div>
+        <div class="zona-scheda" aria-live="polite">
+          <p class="vuota">Scegli una zona sulla figura o qui sopra: ti racconto cosa possiamo fare e un gesto da provare oggi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- I GESTI DELLA LONGEVITÀ: percorso guidato -->
   <section id="gesti" class="sezione">
     <div class="gesti">
-      <div>
+      <div class="gesti-intro">
         <p class="eyebrow">I gesti della longevità</p>
-        <h2>Alcuni gesti di tutti i giorni <em>dicono molto del tuo corpo.</em></h2>
-        <p>Presto qui troverai un piccolo percorso per osservarli con calma, da solo o insieme a un tuo genitore. Non è un test medico: è un modo per capire da dove partire.</p>
-        <span class="badge">In arrivo</span>
+        <h2>Cinque gesti di tutti i giorni <em>che dicono molto del tuo corpo.</em></h2>
+        <p>Provali con calma, da solo o insieme a un tuo genitore. Non è un test medico e non c'è nessun voto: è un modo per capire da dove partire.</p>
+        <p class="sicuro">Fallo solo vicino a un appoggio sicuro, come un tavolo o un muro. Se un gesto ti sembra rischioso, salta e passa al successivo.</p>
       </div>
-      <ol class="gesti-lista">
-        <li><span>01</span>Alzarsi dalla sedia senza aiutarsi con le mani</li>
-        <li><span>02</span>Sedersi per terra e tornare in piedi</li>
-        <li><span>03</span>Fare le scale senza fermarsi</li>
-      </ol>
+      <div class="gesti-box" aria-live="polite">
+        <div class="gesti-passi" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+
+        <article class="gesto" data-g="0">
+          <svg viewBox="0 0 240 190" class="disegno"><path pathLength="1" d="M20 172 H220 M36 118 H86 M86 118 V172 M36 118 V172 M36 118 V64"/><circle pathLength="1" cx="60" cy="62" r="9"/><path pathLength="1" d="M60 71 L63 113 L92 113 L92 168 M62 84 L74 100 L60 104"/><path class="dopo" pathLength="1" d="M108 118 h24 M126 112 l8 6 l-8 6"/><circle class="dopo" pathLength="1" cx="178" cy="40" r="9"/><path class="dopo" pathLength="1" d="M178 49 V106 M178 106 L168 168 M178 106 L188 168 M178 64 L164 76 L178 86 M178 64 L192 76 L178 86"/></svg>
+          <p class="n">Gesto 1 di 5</p>
+          <h3>Alzarti dalla sedia senza usare le mani</h3>
+          <p>Siediti su una sedia stabile, incrocia le braccia sul petto e alzati.</p>
+          <p class="perche">È il gesto che usi ogni giorno per alzarti dal divano, dal letto, dalla macchina.</p>
+        </article>
+        <article class="gesto" data-g="1" hidden>
+          <svg viewBox="0 0 240 190" class="disegno"><path pathLength="1" d="M20 172 H220 M190 40 V172"/><circle pathLength="1" cx="120" cy="40" r="9"/><path pathLength="1" d="M120 49 V106 M120 106 V170 M120 106 L142 124 L132 146 M120 62 L96 80 M120 62 L146 74 L188 76"/></svg>
+          <p class="n">Gesto 2 di 5</p>
+          <h3>Stare su una gamba per qualche secondo</h3>
+          <p>Vicino a un tavolo o a un muro, solleva un piede da terra e conta piano fino a dieci. Poi cambia gamba.</p>
+          <p class="perche">L'equilibrio è quello che ti tiene in piedi quando inciampi.</p>
+        </article>
+        <article class="gesto" data-g="2" hidden>
+          <svg viewBox="0 0 240 190" class="disegno"><path pathLength="1" d="M20 172 H220"/><circle pathLength="1" cx="58" cy="112" r="9"/><path pathLength="1" d="M58 121 L62 156 M62 156 L38 166 L84 168 M60 132 L44 156"/><path class="dopo" pathLength="1" d="M104 140 h24 M122 134 l8 6 l-8 6"/><circle class="dopo" pathLength="1" cx="178" cy="40" r="9"/><path class="dopo" pathLength="1" d="M178 49 V106 M178 106 L168 168 M178 106 L188 168 M178 64 L164 90 M178 64 L192 90"/></svg>
+          <p class="n">Gesto 3 di 5</p>
+          <h3>Sederti a terra e tornare in piedi</h3>
+          <p>Su un tappeto, scendi a sederti come ti viene e rialzati. Puoi aiutarti con le mani o con una sedia.</p>
+          <p class="perche">Serve per giocare con i nipoti, per stare in spiaggia, e se un giorno cadi.</p>
+        </article>
+        <article class="gesto" data-g="3" hidden>
+          <svg viewBox="0 0 240 190" class="disegno"><path pathLength="1" d="M20 172 H76 V142 H126 V112 H176 V82 H220"/><circle pathLength="1" cx="112" cy="40" r="9"/><path pathLength="1" d="M112 49 L110 96 M110 96 L102 140 M110 96 L132 100 L134 110 M112 62 L98 84 M112 62 L128 82"/></svg>
+          <p class="n">Gesto 4 di 5</p>
+          <h3>Fare una rampa di scale senza fermarti</h3>
+          <p>Una rampa normale, al tuo passo, tenendoti al corrimano se vuoi.</p>
+          <p class="perche">Le scale chiedono forza alle gambe e fiato, insieme.</p>
+        </article>
+        <article class="gesto" data-g="4" hidden>
+          <svg viewBox="0 0 240 190" class="disegno"><path pathLength="1" d="M20 172 H220"/><circle pathLength="1" cx="120" cy="40" r="9"/><path pathLength="1" d="M120 49 V106 M120 106 L104 168 M120 106 L138 168 M120 62 L104 92 M120 62 L138 88"/><path class="dopo" pathLength="1" d="M108 28 Q120 12 136 24 M130 18 l6 6 l-8 2"/></svg>
+          <p class="n">Gesto 5 di 5</p>
+          <h3>Girarti a guardare indietro mentre cammini</h3>
+          <p>Cammina piano in un posto sgombro, poi gira testa e spalle per guardare dietro di te.</p>
+          <p class="perche">Ti serve per attraversare la strada e per restare stabile quando qualcuno ti chiama.</p>
+        </article>
+
+        <div class="risposte" role="group" aria-label="Come è andata?">
+          <button data-r="facile">Sì, facilmente</button>
+          <button data-r="fatica">Con un po' di fatica</button>
+          <button data-r="no">Preferisco non provarci</button>
+        </div>
+        <button class="indietro" type="button">Torna al gesto precedente</button>
+
+        <div class="esito" hidden>
+          <h3></h3>
+          <p class="esito-testo"></p>
+          <p class="esito-lista"></p>
+          <div class="actions">
+            <a class="pill oro" href="#prenota">Richiedi il primo incontro</a>
+            <button class="pill chiaro rifai" type="button">Rifallo con un tuo genitore</button>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -138,7 +227,7 @@
       <h2>Libra, <em>un piccolo posto nel verde.</em></h2>
       <p>Uno spazio a Pietrasanta con piante tropicali, un giardino e una zona di allenamento all'aperto nella sabbia. Un posto dove tornare all'essenziale e sentirsi a casa.</p>
       <p class="address">Via Santa Maria 33, Pietrasanta (LU)</p>
-      <a class="pill verde" href="https://libraterracreativa.github.io/" target="_blank" rel="noopener">Scopri Libra <span aria-hidden="true">›</span></a>
+      <a class="pill verde" href="https://libraterracreativa.github.io/" target="_blank" rel="noopener">Scopri Libra</a>
     </div>
   </section>
 
@@ -171,18 +260,20 @@
     <p class="tag">In cima al percorso</p>
     <h2>Richiedi <em>il primo incontro.</em></h2>
     <p>Scrivi alla segreteria: ti spieghiamo come funziona e troviamo insieme il giorno giusto.</p>
-    <a class="pill oro" href="#" data-whatsapp>Scrivici su WhatsApp <span aria-hidden="true">›</span></a>
+    <a class="pill oro" href="#" data-whatsapp>Scrivici su WhatsApp</a>
     <p class="todo">{{Numero WhatsApp della segreteria}}</p>
     <p class="presto">Presto sul sito: la richiesta di appuntamento online, i pacchetti di lezioni e l'area clienti, riservati a chi si registra.</p>
   </section>
 </main>
 
 <footer>
-  <span><strong>Simone Gatti</strong> · Chinesiologo · Libra Terra Creativa, Pietrasanta</span>
+  <span><strong>Simone Gatti</strong>, chinesiologo a Libra Terra Creativa, Pietrasanta</span>
   <span>Muoviti fuori. Stai bene dentro.</span>
 </footer>
 
 <script src="assets/js/sito.js"></script>
 <script src="assets/js/effetti.js"></script>
+<script src="assets/js/gesti.js"></script>
+<script src="assets/js/corpo.js"></script>
 </body>
 </html>
