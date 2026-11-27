@@ -28,7 +28,7 @@
   var TESTO = 'Buongiorno, ho visto il sito di Simone e vorrei informazioni sul primo incontro';
   document.querySelectorAll('[data-whatsapp]').forEach(function (a) {
     if (NUMERO) {
-      a.href = 'https://wa.me/' + NUMERO + '?text=' + encodeURIComponent(TESTO);
+      a.href = 'https://wa.me/' + NUMERO + '?text=' + encodeURIComponent(a.dataset.testo || TESTO);
       a.target = '_blank';
       a.rel = 'noopener';
     } else {

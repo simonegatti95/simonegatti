@@ -447,3 +447,22 @@ main>section{position:relative;z-index:1}
 .viste button:focus-visible{outline:3px solid #F5DDB8;outline-offset:3px}
 .figura:not(.tre) ~ .viste{display:none}
 @media (max-width:860px){.corpo .figura,.corpo .viste,.corpo .corpo-lato{grid-column:1;grid-row:auto}.corpo .viste{margin-top:0}}
+
+/* ============ Te lo spiego in 1 minuto ============ */
+#spiego details p{max-width:60ch}
+#spiego .prova{color:rgba(242,238,227,.9)}
+#spiego .prova strong,#spiego .medico strong{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--oro)}
+#spiego .medico{font-size:16px;border-left:2px solid var(--oro);padding-left:12px}
+#spiego details .pill{margin:6px 0 22px}
+
+/* ============ 7 giorni su WhatsApp ============ */
+.sette{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(30px,6vw,90px);align-items:center}
+.sette h2{margin-bottom:20px}
+.sette .pill{margin-top:10px}
+.sette .nota{font-size:15px;color:rgba(237,227,200,.6);margin-top:16px}
+.giorni{list-style:none;margin:0;padding:clamp(20px,3vw,34px);border-radius:var(--r);background:linear-gradient(135deg,rgba(255,255,255,.1),rgba(255,255,255,.03));
+  border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+.giorni li{display:flex;align-items:baseline;gap:18px;padding:13px 0;border-bottom:1px solid rgba(237,227,200,.12);font-family:var(--serif);font-size:clamp(20px,1.9vw,25px);color:var(--crema)}
+.giorni li:last-child{border-bottom:0}
+.giorni span{flex:none;width:76px;font-family:var(--sans);font-size:14px;color:var(--oro)}
+@media (max-width:860px){.sette{grid-template-columns:1fr}}
