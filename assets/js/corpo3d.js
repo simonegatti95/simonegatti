@@ -18,14 +18,9 @@ function avvia() {
   const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 50);
   camera.position.set(0, 0.95, 5.6);
 
-  // rotazione sul proprio asse: segue il cursore da sinistra a destra dello schermo
+  // rotazione sul proprio asse: solo con il cursore dentro il riquadro e fuori dal corpo
   const giro = { meta: 0, ora: 0 };
   const mouse = matchMedia('(hover: hover) and (pointer: fine)').matches;
-  if (mouse && !fermo) {
-    addEventListener('pointermove', (e) => {
-      giro.meta = -(e.clientX / innerWidth - 0.5) * Math.PI * 2; // cursore a destra: il corpo gira a sinistra, fino a 180°
-    }, { passive: true });
-  }
   const controlli = { update() {
     giro.ora += (giro.meta - giro.ora) * (fermo ? 1 : 0.07);
     perno.rotation.y = giro.ora;
@@ -132,6 +127,29 @@ function avvia() {
     if (!giu || e.pointerType === 'mouse') return;
     giro.meta = partenza + (e.clientX - giu[0]) / canvas.clientWidth * Math.PI * 2;
   });
+  // mouse: sullo spazio vuoto la figura gira (cursore a destra -> corpo a sinistra), sopra il corpo si ferma
+  let ultimoX = null;
+  function sopraCorpo(e) {
+    if (!modello) return false;
+    const r = canvas.getBoundingClientRect();
+    p.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+    ray.setFromCamera(p, camera);
+    modello.traverse((o) => { if (o.isSkinnedMesh) { o.computeBoundingSphere(); o.computeBoundingBox(); } });
+    return ray.intersectObject(modello, true).length > 0;
+  }
+  if (mouse) {
+    canvas.addEventListener('pointerenter', (e) => { ultimoX = e.clientX; });
+    canvas.addEventListener('pointerleave', () => { ultimoX = null; canvas.classList.remove('sul-corpo', 'gira'); });
+    canvas.addEventListener('pointermove', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      const sopra = sopraCorpo(e);
+      canvas.classList.toggle('sul-corpo', sopra);
+      canvas.classList.toggle('gira', !sopra);
+      if (!sopra && ultimoX !== null) giro.meta -= (e.clientX - ultimoX) / canvas.clientWidth * Math.PI;
+      ultimoX = e.clientX;
+    });
+  }
+
   canvas.addEventListener('pointerup', (e) => {
     if (!giu || !modello) return;
     const mosso = Math.hypot(e.clientX - giu[0], e.clientY - giu[1]); giu = null;
