@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Hanken+Grotesk:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="assets/css/sito.css?v=1795759140">
+<link rel="stylesheet" href="assets/css/sito.css?v=1795759300">
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
 </head>
 <body>
@@ -132,8 +132,13 @@
         <button class="zona" data-z="ginocchia" style="--x:50%;--y:67%"><span>Ginocchia</span></button>
         <button class="zona" data-z="piedi" style="--x:50%;--y:86%"><span>Caviglie e piedi</span></button>
       </div>
+      <div class="viste" role="group" aria-label="Gira la figura">
+        <button type="button" data-vista="0">Di fronte</button>
+        <button type="button" data-vista="90">Di fianco</button>
+        <button type="button" data-vista="180">Di schiena</button>
+      </div>
       <div class="corpo-lato">
-        <p class="istruzioni">Passa il mouse sullo spazio intorno alla figura per girarla (sul telefono trascina col dito). Sopra il corpo la figura si ferma: clicca il punto dove senti fastidio, diventa rosso e qui sotto ti racconto cosa possiamo fare. Tocca di nuovo la chiazza per toglierla.</p>
+        <p class="istruzioni">Gira la figura trascinandola, passando il mouse nello spazio intorno o con i pulsanti sotto. Sopra il corpo si ferma: clicca il punto dove senti fastidio, diventa rosso e qui sotto ti racconto cosa possiamo fare. Tocca di nuovo la chiazza per toglierla.</p>
         <div class="zone-lista" role="group" aria-label="Scegli una zona">
           <button data-z="spalle">Collo e spalle</button>
           <button data-z="schiena">Schiena</button>
@@ -273,6 +278,6 @@
 <script src="assets/js/effetti.js?v=1795710797"></script>
 <script src="assets/js/gesti.js?v=1795710797"></script>
 <script src="assets/js/corpo.js?v=1795710797"></script>
-<script type="module" src="assets/js/corpo3d.js?v=1795759140"></script>
+<script type="module" src="assets/js/corpo3d.js?v=1795759300"></script>
 </body>
 </html>

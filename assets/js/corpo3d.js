@@ -122,11 +122,21 @@ function avvia() {
   const ray = new THREE.Raycaster(), p = new THREE.Vector2();
   let giu = null;
   let partenza = 0;
-  canvas.addEventListener('pointerdown', (e) => { giu = [e.clientX, e.clientY]; partenza = giro.meta; });
-  canvas.addEventListener('pointermove', (e) => {
-    if (!giu || e.pointerType === 'mouse') return;
-    giro.meta = partenza + (e.clientX - giu[0]) / canvas.clientWidth * Math.PI * 2;
+  // trascinare (mouse o dito) gira la figura ovunque nel riquadro, anche sopra il corpo
+  canvas.addEventListener('pointerdown', (e) => {
+    giu = [e.clientX, e.clientY]; partenza = giro.meta;
+    try { canvas.setPointerCapture(e.pointerId); } catch (_) {}
   });
+  canvas.addEventListener('pointermove', (e) => {
+    if (!giu) return;
+    giro.meta = partenza - (e.clientX - giu[0]) / canvas.clientWidth * Math.PI * 2;
+  });
+  // pulsanti: di fronte, di fianco, di schiena (prende la strada più corta)
+  document.querySelectorAll('.viste [data-vista]').forEach((b) => b.addEventListener('click', () => {
+    const base = +b.dataset.vista * Math.PI / 180;
+    giro.meta = base + Math.round((giro.meta - base) / (Math.PI * 2)) * Math.PI * 2;
+  }));
+
   // mouse: sullo spazio vuoto la figura gira (cursore a destra -> corpo a sinistra), sopra il corpo si ferma
   let ultimoX = null;
   function sopraCorpo(e) {
@@ -141,7 +151,7 @@ function avvia() {
     canvas.addEventListener('pointerenter', (e) => { ultimoX = e.clientX; });
     canvas.addEventListener('pointerleave', () => { ultimoX = null; canvas.classList.remove('sul-corpo', 'gira'); });
     canvas.addEventListener('pointermove', (e) => {
-      if (e.pointerType !== 'mouse') return;
+      if (e.pointerType !== 'mouse' || giu) return;
       const sopra = sopraCorpo(e);
       canvas.classList.toggle('sul-corpo', sopra);
       canvas.classList.toggle('gira', !sopra);
