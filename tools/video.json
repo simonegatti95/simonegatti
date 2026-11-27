@@ -1,0 +1,17 @@
+{
+  "comune": "The first image is the exact first frame of the video and the second image is the exact last frame. One continuous shot from a static camera locked on a tripod: no cuts, no zoom, no camera movement. Real-time speed, natural human motion and realistic body mechanics. The same person, clothes, light and landscape from start to end. Ambient sound only: soft wind and footsteps on the grass. No music, no dialogue, no text on screen.",
+  "video": [
+    {
+      "id": "ap_video_uomo",
+      "inizio": "tools/generate/ap_inizio_uomo/v3.jpg",
+      "fine": "tools/generate/ap_fine_uomo/v0.jpg",
+      "prompt": "The man jogs lightly across the meadow from left to right. Without stopping the flow, he slows down over two or three steps, turns to face the camera, plants his feet hip-width apart and sinks smoothly into a deep bodyweight squat while his arms rise forward to shoulder height. He holds the squat calmly and breathes. Running and squat are one fluid movement, not two separate actions."
+    },
+    {
+      "id": "ap_video_donna",
+      "inizio": "tools/generate/ap_inizio_donna/v2.jpg",
+      "fine": "tools/generate/ap_fine_donna/v1.jpg",
+      "prompt": "The woman jogs lightly across the meadow from left to right. Without stopping the flow, she slows down over two or three steps, plants her feet hip-width apart and sinks smoothly into a deep bodyweight squat while her arms rise forward to shoulder height. She holds the squat calmly and breathes. Running and squat are one fluid movement, not two separate actions."
+    }
+  ]
+}

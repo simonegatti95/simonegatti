@@ -61,10 +61,42 @@
   /* ---------- 2. Apertura viva: lettere una per una ---------- */
   var parola = document.querySelector('.hero-word');
   if (parola && !fermo) {
-    var t = parola.textContent;
-    parola.innerHTML = t.split('').map(function (c, i) { return '<span style="animation-delay:' + (300 + i * 70) + 'ms">' + c + '</span>'; }).join('');
+    // ogni parola in un blocco che non si spezza, così gli spazi restano; le righe del <br> restano
+    var n = 0;
+    parola.innerHTML = parola.innerHTML.split(/<br\s*\/?>/i).map(function (riga) {
+      return riga.trim().split(/\s+/).map(function (p) {
+        return '<span class="w">' + p.split('').map(function (c) {
+          return '<span class="l" style="animation-delay:' + (n++ * 45) + 'ms">' + c + '</span>';
+        }).join('') + '</span>';
+      }).join(' ');
+    }).join('<br>');
   }
   var heroSez = document.querySelector('.hero'), heroBg = document.querySelector('.hero-bg'), heroTesti = document.querySelectorAll('.hero-left, .hero-right');
+
+  /* ---------- 2b. Il video dell'apertura: corsa, squat, poi il sito ---------- */
+  function pronto() { if (heroSez) heroSez.classList.add('pronto'); }
+  var video = document.querySelector('video.hero-bg');
+  if (video && fermo) {
+    // niente movimento: si vede la persona già nello squat
+    video.pause();
+    video.poster = video.dataset.fermo || video.poster;
+    [].slice.call(video.querySelectorAll('source')).forEach(function (s) { s.remove(); });
+    video.load();
+    pronto();
+  } else if (video) {
+    var soglia = parseFloat(video.dataset.pronto) || 0;
+    // rete di sicurezza: se il video non parte (risparmio energetico, rete lenta) i testi arrivano lo stesso
+    var attesa = setTimeout(pronto, 4000);
+    video.addEventListener('playing', function () {
+      clearTimeout(attesa);
+      attesa = setTimeout(pronto, (soglia + 1.5) * 1000);
+    }, { once: true });
+    video.addEventListener('timeupdate', function () { if (video.currentTime >= soglia) pronto(); });
+    video.addEventListener('ended', pronto);
+    video.addEventListener('error', pronto, true);
+  } else {
+    pronto();
+  }
 
   /* ---------- 4a. Parole che si accendono ---------- */
   var quote = document.querySelector('.manifesto blockquote'), parole = [];

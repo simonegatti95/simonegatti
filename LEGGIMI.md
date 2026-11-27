@@ -9,6 +9,7 @@ Sito personale di Simone Gatti, chinesiologo a Libra, Pietrasanta. Fase 1: home 
 
 - `assets/js/sito.js`: comparsa delle sezioni e link WhatsApp. **Il numero della segreteria va inserito qui** (`NUMERO`).
 - `assets/img/`: foto di Libra (dal sito di Libra, da usare con l'accordo di Silvia).
+- `assets/video/`: il video dell'apertura (corsa che diventa squat), fatto con l'AI: `apertura-16x9.mp4` per il computer, `apertura-9x16.mp4` per il telefono. I testi compaiono al secondo scritto in `data-pronto` (in `index.html`). Si rigenera con `tools/genera_video.py` (Gemini Omni Flash, si paga a secondo di video) partendo dalle immagini di `tools/immagini.json`, poi si comprime con ffmpeg.
 
 ## Segnaposto da completare
 

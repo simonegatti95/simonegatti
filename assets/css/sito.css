@@ -50,7 +50,7 @@ p{margin:0 0 14px;color:var(--body)}
 .hero::before{content:'';position:absolute;inset:0;z-index:-1;
   background:linear-gradient(180deg,rgba(20,32,25,.35) 0%,rgba(20,32,25,.05) 35%,rgba(20,32,25,.15) 60%,rgba(20,32,25,.6) 100%)}
 .hero-word{position:absolute;left:0;right:0;top:clamp(86px,12vh,130px);margin:0;text-align:center;font-family:var(--serif);
-  font-size:clamp(70px,16.5vw,250px);line-height:.9;letter-spacing:-.03em;color:rgba(255,255,255,.92);z-index:-1;pointer-events:none}
+  font-size:clamp(40px,8vw,128px);line-height:.95;letter-spacing:-.02em;color:rgba(255,255,255,.95);z-index:-1;pointer-events:none}
 .hero-left{grid-column:1;grid-row:2;align-self:end;padding-bottom:36px}
 .hero-right{grid-column:2;grid-row:2;align-self:end;justify-self:end;max-width:360px;text-align:right;padding-bottom:40px}
 .hero-right p{color:rgba(255,255,255,.9);font-size:17px;margin-bottom:18px}
@@ -176,7 +176,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;paddin
 @media (max-width:700px){
   body{font-size:17px}
   .hero{grid-template-columns:1fr;grid-template-rows:1fr auto auto auto}
-  .hero-word{top:110px;font-size:21vw}
+  .hero-word{top:110px;font-size:12.5vw}
   .hero-left{grid-row:2;padding-bottom:16px}
   .hero-right{grid-column:1;grid-row:3;justify-self:start;text-align:left;padding-bottom:28px}
   .hero-strip{grid-row:4;font-size:11px}
@@ -262,9 +262,13 @@ main>section{position:relative;z-index:1}
 /* 2. apertura viva */
 .fx .hero-bg{animation:zoomIn 2.6s cubic-bezier(.2,.7,.2,1) both;will-change:transform}
 @keyframes zoomIn{from{scale:1.08}to{scale:1}}
-.fx .hero-word span{display:inline-block;opacity:0;filter:blur(14px);transform:translateY(.12em);animation:lettera 1s var(--ease) forwards}
+.hero-word .w{display:inline-block;white-space:nowrap}
+.fx .hero-word .l{display:inline-block;opacity:0;filter:blur(14px);transform:translateY(.12em)}
+.fx .hero.pronto .hero-word .l{animation:lettera 1s var(--ease) forwards}
 @keyframes lettera{to{opacity:1;filter:blur(0);transform:none}}
-.fx .hero-left,.fx .hero-right{animation:sali 1s var(--ease) 1s both}
+/* i testi aspettano che la persona arrivi nello squat (classe "pronto" da effetti.js) */
+.fx .hero:not(.pronto) .hero-left,.fx .hero:not(.pronto) .hero-right,.fx .hero:not(.pronto) .hero-strip{opacity:0}
+.fx .hero.pronto .hero-left,.fx .hero.pronto .hero-right,.fx .hero.pronto .hero-strip{animation:sali 1s var(--ease) .5s both}
 @keyframes sali{from{opacity:0;transform:translateY(20px)}}
 
 /* 3. vetro che riflette la luce del mouse */
@@ -487,3 +491,18 @@ main>section{position:relative;z-index:1}
 .strada li::before{content:'';position:absolute;left:2px;top:20px;width:10px;height:2px;background:var(--oro)}
 @media (max-width:860px){.corsa-strade{grid-template-columns:1fr}.corsa-apertura{min-height:75vh}}
 @media (prefers-reduced-motion:reduce){.corsa-apertura .bg,.strada img{filter:none;transform:none}}
+
+/* apertura con il video: su schermi orizzontali la persona sta un po' a destra, lontano dal titolo */
+@media (min-aspect-ratio:1/1){.hero video.hero-bg{object-position:0% 50%}}
+/* schermi verticali: il video in alto, i testi sotto sul verde, così non coprono la persona nello squat */
+@media (max-aspect-ratio:1/1){
+  .hero{min-height:0;background:var(--verde);grid-template-columns:1fr;grid-template-rows:72svh auto auto auto}
+  .hero-bg,.hero::before{height:72svh;bottom:auto}
+  /* il fondo del video sfuma nel verde, anche quando la parallasse lo sposta */
+  .hero-bg{-webkit-mask-image:linear-gradient(180deg,#000 76%,transparent 100%);mask-image:linear-gradient(180deg,#000 76%,transparent 100%)}
+  .hero::before{background:linear-gradient(180deg,rgba(20,32,25,.35) 0%,rgba(20,32,25,.05) 35%,rgba(20,32,25,0) 100%)}
+  .hero-word{font-size:clamp(34px,10.5vw,76px)}
+  .hero-left{grid-column:1;grid-row:2;padding:18px 0 14px}
+  .hero-right{grid-column:1;grid-row:3;justify-self:start;text-align:left;max-width:none;padding-bottom:28px}
+  .hero-strip{grid-row:4}
+}
