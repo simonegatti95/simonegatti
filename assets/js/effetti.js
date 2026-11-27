@@ -143,6 +143,12 @@
       var n = Math.round(Math.max(0, Math.min(1, p)) * parole.length);
       parole.forEach(function (w, i) { w.classList.toggle('accesa', i < n); });
     }
+    // corsa: le foto passano da mosse a nitide mentre entrano nello schermo
+    document.querySelectorAll('.corsa-apertura, .strada').forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      var k = Math.max(0, Math.min(1, (r.top - vh * 0.15) / (vh * 0.7)));
+      el.style.setProperty('--mosso', k.toFixed(3));
+    });
     // tappe
     if (scorrePerc()) {
       var r2 = sezPerc.getBoundingClientRect(), corsa = sezPerc.offsetHeight - vh;

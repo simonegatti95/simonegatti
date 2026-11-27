@@ -2,11 +2,6 @@
   "comune": "Create ONE photorealistic editorial photograph for the website of a kinesiologist who helps people over 60 stay independent through natural movement outdoors. It must look like a real photo taken by a professional photographer with natural light, not an illustration and not a 3D render. Real skin texture, natural proportions, dignified and calm mood, warm golden late-afternoon light. Colour palette: deep forest green, warm cream, soft gold. Setting when outdoors: a small private garden studio in Tuscany (Pietrasanta) with tropical plants, palms, bougainvillea and an outdoor training area of fine pale sand. No text, no logos, no watermarks, no gym machines, no medical equipment.",
   "immagini": [
     {
-      "id": "corpo",
-      "aspect": "2:3",
-      "prompt": "Full-body portrait, front view, perfectly centred and symmetrical: a fit, healthy man about 65 years old with short grey hair and a trimmed grey beard, standing upright and relaxed, arms hanging naturally a little away from the body, feet hip-width apart, barefoot, calm kind expression looking at the camera. He wears a plain fitted sage-green short-sleeve t-shirt and soft cream knee-length shorts, so knees, ankles and arms are visible. Seamless studio backdrop in very dark forest green (#13241A) fading to almost black at the edges, with a warm golden rim light from behind outlining his silhouette and a soft key light on the front. Whole body from head to feet visible with generous empty space above the head and below the feet. Low-key, elegant, like a premium wellness brand campaign."
-    },
-    {
       "id": "g1",
       "aspect": "4:3",
       "prompt": "A woman about 67 years old with short silver hair, wearing a loose sage-green linen shirt and cream trousers, is in the middle of standing up from a simple wooden chair WITHOUT using her hands: arms crossed over her chest, torso leaning slightly forward, hips just lifting off the seat, focused gentle expression. The chair stands on the pale sand of the garden training area, tropical plants and palms softly blurred behind. Side three-quarter view, whole body and chair in frame."
@@ -78,6 +73,24 @@
       "aspect": "4:3",
       "prompt": "Create ONE image. A glowing translucent glass mannequin figure, like a medical hologram: smooth featureless anatomical mannequin, semi-transparent glass with a faint inner skeleton softly visible, edges lit by warm golden light (#E3B074) with soft gold inner glow. Background: plain deep forest green (#13241A) studio darkness fading to near black (#0B140F) at the edges, with a very subtle fine grid. NO garden, NO plants, NO landscape, NO sky, NO environment: only the figure on the dark green background. Elegant, calm, minimal, premium health-tech look. No text, no numbers, no labels, no UI, no drawn lines. Whole figure in frame with empty space around it. Pose: front three-quarter view, walking mid-step and turning head and shoulders to look back over the shoulder, balanced.",
       "senza_comune": true
+    },
+    {
+      "id": "c1",
+      "aspect": "16:9",
+      "senza_comune": true,
+      "prompt": "Create ONE cinematic editorial running photograph, shot on film with visible fine grain, like a premium running brand campaign. Moody, natural, real people, not an illustration, no text, no logos, no visible brand marks on clothes or shoes. Colour grading: deep forest greens, warm golden highlights, soft cream tones. Setting: Versilia coast in Tuscany, Italy. Strong horizontal motion blur: a fit man about 50 with short grey hair runs past the camera along the seaside promenade at sunrise, his legs and arms streaked by the blur, the sea and the pale sky softly blurred behind. Panning shot, dynamic, energetic."
+    },
+    {
+      "id": "c2",
+      "aspect": "16:9",
+      "senza_comune": true,
+      "prompt": "Create ONE cinematic editorial running photograph, shot on film with visible fine grain, like a premium running brand campaign. Moody, natural, real people, not an illustration, no text, no logos, no visible brand marks on clothes or shoes. Colour grading: deep forest greens, warm golden highlights, soft cream tones. Setting: Versilia coast in Tuscany, Italy. A solitary runner seen from behind, small in the frame, running on a quiet road through a pine forest (tall umbrella pines) wrapped in morning fog, soft diffused light, calm and contemplative, lots of negative space."
+    },
+    {
+      "id": "c3",
+      "aspect": "16:9",
+      "senza_comune": true,
+      "prompt": "Create ONE cinematic editorial running photograph, shot on film with visible fine grain, like a premium running brand campaign. Moody, natural, real people, not an illustration, no text, no logos, no visible brand marks on clothes or shoes. Colour grading: deep forest greens, warm golden highlights, soft cream tones. Setting: Versilia coast in Tuscany, Italy. Very low angle close-up of a runner's feet and lower legs mid-stride on a sandy dirt track among Mediterranean pines, warm golden backlight, sand and dust kicked up, shallow depth of field, plain neutral running shoes without logos, white socks."
     }
   ]
 }
